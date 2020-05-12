@@ -1,21 +1,54 @@
 import React, { Component } from 'react';
+import background from './background-login.jpeg'
+import './Login.css'
 
-class Login extends Component {
+export default class Login extends Component {
   constructor(props){
     super(props);
     this.state = {
-
+      username: '',
+      email: '',
+      accountType: 'Account Type'
     };
+  }
+
+  handleUserInfo = (e) => {
+    e.preventDefault();
+    const { id, value } = e.target
+    if(id) {
+      this.setState({ [id]: value });
+    }
+  } 
+
+  handleLogIn = (e) => {
+    e.preventDefault();
+    const { username, email, accountType } = this.state;
+    this.props.setLoginInfo(this.state)
   }
 
   render() {
     return(
-      <form className='login-form'>
-        //user name input
-        //user email input
-        //account type drop down
-        //Login btn
-      </form>
+      <div className='login-container'>
+        <form className='login-form' action='#' method=''>
+        <div className='field'>
+          <span className='input-span'></span>
+          <input id='username' onChange={(e) => this.handleUserInfo(e)} className='username' type='text' required placeholder='Username' value={this.state.value}></input>
+        </div>
+        <div className='field-space'>
+          <span className=''></span>
+          <input id='email' type='text' className='email' required placeholder='Email' onChange={(e) => this.handleUserInfo(e)}></input>
+        </div>
+        <div className='drop-down'>
+          <select type='select' id='accountType' onChange={(e) => this.handleUserInfo(e)}>
+            <option value=''>Account Type</option>
+            <option value='business'>Business</option>
+            <option value='vacation'>Vacation</option>
+            <option value='other'>Other</option>
+          </select>
+        </div>
+        <button onSubmit={(e) => this.handleLogIn(e)} className='login-btn'>LOG IN</button>
+        </form>
+      </div>
     )
   }
 }

@@ -9,3 +9,5 @@ const AreaContainer = () => {
     </div>
   )
 }
+
+export default AreaContainer;
