@@ -8,13 +8,21 @@
 ### Why is this change required? What problem does it solve?
 ### Were there any challenges that arose while implementing this feature? If so, how were the addressed?
 ### Files modified:
-- [ ] index.html
-- [ ] base.scss
-- [ ] index.js
-- [ ] domUpdates.js
-- [ ] loginHandler.js
-- [ ] Hotel.js
-- [ ] Users.js
-- [ ] recipe-test.js
-- [ ] user-test.js
+- [ ] ApiHandler.js
+- [ ] App.js
+- [ ] Login.js
+- [ ] Dashboard.js
+- [ ] AreaContainer.js
+- [ ] AreaCard.js
+- [ ] LocationContainer.js
+- [ ] LocationCard.js
+- [ ] Header.js
+- [ ] App.test.js
+- [ ] Login.test.js
+- [ ] Dashboard.test.js
+- [ ] AreaContainer.test.js
+- [ ] AreaCard.test.js
+- [ ] LocationContainer.test.js
+- [ ] LocationCard.test.js
+- [ ] Header.test.js
 - [ ] Other files:
