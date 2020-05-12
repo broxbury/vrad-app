@@ -9,3 +9,5 @@ const AreaCard = () => {
     //Either clicking anywhere on the card will redirect or we will add button to redirect to Location Container/Cards
   )
 }
+
+export default AreaCard;
