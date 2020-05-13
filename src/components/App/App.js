@@ -15,7 +15,8 @@ class App extends Component {
         accountType: '',
         favoriteLocations: []
       },
-      isLoggedIn: false
+      isLoggedIn: false,
+      areas: [],
     };
   }
 
@@ -41,8 +42,7 @@ class App extends Component {
 
         <Route path='/areas' >
           <Header />
-          <h2>HEEYEYEYE</h2>
-          <AreaContainer />
+          <AreaContainer userInfo={this.state.userInfo} areas={this.state.areas}/>
         </Route>
         <Route exact path='/' >
           <Login setLoginInfo={this.setLoginInfo}/>
