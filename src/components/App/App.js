@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import './App.css';
-import Login from '../LogIn/Login'
+import Login from '../LogIn/Login';
+import { Route, Redirect } from 'react-router-dom';
+import Header from '../Header/Header.js';
+import AreaContainer from '../AreaContainer/AreaContainer.js';
 
 class App extends Component {
   constructor(props) {
@@ -12,7 +15,8 @@ class App extends Component {
         accountType: '',
         favoriteLocations: []
       },
-      isLoggedIn: false
+      isLoggedIn: false,
+      areas: [],
     };
   }
 
@@ -23,24 +27,29 @@ class App extends Component {
         username: username,
         email: email,
         accountType: accountType
-      }, 
+      },
       isLoggedIn: true
     });
-  }
+  };
 
   render() {
     return(
       <main className='app'>
-        {/* <Header />
-        <Dashboard /> */}
-        <Login setLoginInfo={this.setLoginInfo}/>
+
+      {!this.state.isLoggedIn ?
+         <Redirect to = '/'/>
+        : <Redirect to = '/areas'/>}
+
+        <Route path='/areas' >
+          <Header />
+          <AreaContainer userInfo={this.state.userInfo} areas={this.state.areas}/>
+        </Route>
+        <Route exact path='/' >
+          <Login setLoginInfo={this.setLoginInfo}/>
+        </Route>
       </main>
-      //Login
-      //Header
-      //DashBoard
     )
   }
-
 }
 
 export default App;
