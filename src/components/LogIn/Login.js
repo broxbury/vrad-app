@@ -22,14 +22,13 @@ export default class Login extends Component {
 
   handleLogIn = (e) => {
     e.preventDefault();
-    const { username, email, accountType } = this.state;
     this.props.setLoginInfo(this.state)
   }
 
   render() {
     return(
       <div className='login-container'>
-        <form className='login-form' action='#' method=''>
+        <form onSubmit={(e) => this.handleLogIn(e)} className='login-form' action='#' method=''>
         <div className='field'>
           <span className='input-span'></span>
           <input id='username' onChange={(e) => this.handleUserInfo(e)} className='username' type='text' required placeholder='Username' value={this.state.value}></input>
@@ -39,14 +38,14 @@ export default class Login extends Component {
           <input id='email' type='text' className='email' required placeholder='Email' onChange={(e) => this.handleUserInfo(e)}></input>
         </div>
         <div className='drop-down'>
-          <select type='select' id='accountType' onChange={(e) => this.handleUserInfo(e)}>
+          <select required type='select' id='accountType' onChange={(e) => this.handleUserInfo(e)}>
             <option value=''>Account Type</option>
             <option value='business'>Business</option>
             <option value='vacation'>Vacation</option>
             <option value='other'>Other</option>
           </select>
         </div>
-        <button onSubmit={(e) => this.handleLogIn(e)} className='login-btn'>LOG IN</button>
+        <button className='login-btn'>LOG IN</button>
         </form>
       </div>
     )

@@ -7,27 +7,26 @@ class App extends Component {
     super(props);
     this.state = {
       userInfo: {
-        name: '',
+        username: '',
         email: '',
         accountType: '',
         favoriteLocations: []
-      }
+      },
+      isLoggedIn: false
     };
   }
 
   setLoginInfo = (info) => {
-    const userInfo = this.state.userInfo;
+    const { username, email, accountType } = info;
     this.setState({
       userInfo: {
-        name: info.name,
-        email: info.email,
-        accountType: info.accountType
-      }
-    })
-    console.log('info', info)
+        username: username,
+        email: email,
+        accountType: accountType
+      }, 
+      isLoggedIn: true
+    });
   }
-
-
 
   render() {
     return(
