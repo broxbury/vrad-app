@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Route, Link } from 'react-router-dom';
 import background from './background-login.jpeg'
 import './Login.css'
 
@@ -18,7 +19,7 @@ export default class Login extends Component {
     if(id) {
       this.setState({ [id]: value });
     }
-  } 
+  }
 
   handleLogIn = (e) => {
     e.preventDefault();
@@ -45,7 +46,7 @@ export default class Login extends Component {
             <option value='other'>Other</option>
           </select>
         </div>
-        <button className='login-btn'>LOG IN</button>
+          <button className='login-btn'>LOG IN</button>
         </form>
       </div>
     )
