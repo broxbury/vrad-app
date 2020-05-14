@@ -1,12 +1,15 @@
 import React from 'react';
-import LocationCard from '../LocationCard.js';
+import LocationCard from '../LocationCard/LocationCard.js';
 
-const LocationContainer = ({ cards }) => {
-  // const locationCards = card.map yadda yadda yadda
+const LocationContainer = ({ listings }) => {
+  const listingsToDisplay = listings.map(listing => {
+    return <LocationCard key={listing.id} info={listing}/>
+  })
 
   return(
     <div className='location-container'>
-      {locationCards}
+      {listingsToDisplay}
     </div>
   )
 }
+export default LocationContainer;

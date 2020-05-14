@@ -3,9 +3,10 @@ import './AreaCard.css';
 import RiNoIcon from './card-icons/RiNo.png';
 import CapHillIcon from './card-icons/Cap-Hill.png';
 import LoHiIcon from './card-icons/LoHi.png';
-import ParkHillIcon from './card-icons/Park-Hill.png'
+import ParkHillIcon from './card-icons/Park-Hill.png';
+import { Link } from 'react-router-dom';
 
-const AreaCard = ({ areaInfo }) => {
+const AreaCard = ({ areaInfo, fetchListings }) => {
 
   const cardIcon = (name) => {
     switch(name) {
@@ -22,16 +23,19 @@ const AreaCard = ({ areaInfo }) => {
     }
   };
 
-  console.log('info', areaInfo);
+  // console.log('info', areaInfo);
   return(
     <div className='area-card'>
       <img src={cardIcon(areaInfo.name)} />
       <h3>{areaInfo.name}</h3>
       <p>({areaInfo.nickname})</p>
       <p>{areaInfo.about}</p>
-      <button>LISTINGS</button>
+      <Link to={`/areas/${areaInfo.id}/listings`}>
+      <button id={areaInfo.id} onClick={(e) => fetchListings(e.target.id)}>LISTINGS</button>
+      </Link>
     </div>
   )
 }
 
+// (e) => fetchListings(e.target.id)
 export default AreaCard;

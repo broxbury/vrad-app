@@ -1,8 +1,11 @@
 import React from 'react';
-import ListingCard from '../ListingCard.js';
+// import ListingCard from '../ListingCard.js';
 
-const LocationCard = () => {
+const LocationCard = (listingInfo) => {
   return(
+    <div className='location-card'>
+      <h2>{listingInfo.name}</h2>
+    </div>
     //Location Title
     //Address
     //Favorite btn - change state of favorited on idivdual locations
@@ -10,3 +13,4 @@ const LocationCard = () => {
     //Img
   )
 }
+export default LocationCard;

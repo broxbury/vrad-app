@@ -2,10 +2,10 @@ import React from 'react';
 import AreaCard from '../AreaCard/AreaCard.js';
 import './AreaContainer.css';
 
-const AreaContainer = ({ userInfo, areas }) => {
+const AreaContainer = ({ userInfo, areas, fetchListings }) => {
   const areaCards = areas.map(area => {
     return(
-      <AreaCard areaInfo={area} />
+      <AreaCard key={area.name} fetchListings={fetchListings} areaInfo={area} />
     )
   });
 

@@ -4,6 +4,8 @@ import Login from '../LogIn/Login';
 import { Route, Redirect } from 'react-router-dom';
 import Header from '../Header/Header.js';
 import AreaContainer from '../AreaContainer/AreaContainer.js';
+import LocationContainer from '../LocationContainer/LocationContainer.js'
+import LocationCard from '../LocationCard/LocationCard';
 
 class App extends Component {
   constructor(props) {
@@ -16,14 +18,13 @@ class App extends Component {
         favoriteLocations: []
       },
       isLoggedIn: true,
-      areas: [],
-      currentListings: []
+      areas: []
     };
   }
 
   fetchListings = (neighborhoodId) => {
     const url = 'https://vrad-api.herokuapp.com';
-    const currentHood = this.state.areas.find(area => area.id === neighborhoodId)
+    const currentHood = this.state.areas.find(area => area.id === parseInt(neighborhoodId))
     const listingPromises = currentHood.listings.map(listing => {
       return fetch(url + listing)
       .then(response => response.json()
@@ -38,11 +39,11 @@ class App extends Component {
         }
       }))
     })
-    Promise.all(listingPromises).then(completedListings => this.setState({ currentListings: completedListings }))
+    return Promise.all(listingPromises).then(values => {
+     return values
+    })
   }
 
-
-  // Promise.all(listingPromises).then(completeCurrentListings => this.setState({ currentListings: completeCurrentListings}))
 
   componentDidMount() {
     const url = 'https://vrad-api.herokuapp.com'
@@ -59,7 +60,7 @@ class App extends Component {
            }
          })
        })
-      Promise.all(areaPromises).then(completeAreaData => this.setState({ areas: completeAreaData })).then(() => this.fetchListings(590))
+      Promise.all(areaPromises).then(completeAreaData => this.setState({ areas: completeAreaData }))
     })
   }
 
@@ -86,7 +87,7 @@ class App extends Component {
       isLoggedIn: false
     })
   };
-
+ 
   render() {
     return(
       <main className='app'>
@@ -97,10 +98,13 @@ class App extends Component {
 
         <Route path='/areas' >
           <Header logOut={this.logOut}/>
-          <AreaContainer userInfo={this.state.userInfo} areas={this.state.areas}/>
+          <AreaContainer fetchListings={this.fetchListings} userInfo={this.state.userInfo} areas={this.state.areas}/>
         </Route>
+        {/* <Route path='/areas/:id/listings' render={({ match }) => { return <LocationContainer
+          listings={this.fetchListings(match.params.id)} match={ match }
+        />}} /> */}
         <Route exact path='/' >
-          <Login setLoginInfo={this.setLoginInfo}/>
+          <Login setLoginInfo={this.setLoginInfo} />
         </Route>
       </main>
     )
