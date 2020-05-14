@@ -29,6 +29,7 @@ const AreaCard = ({ areaInfo }) => {
       <h3>{areaInfo.name}</h3>
       <p>({areaInfo.nickname})</p>
       <p>{areaInfo.about}</p>
+      <button>LISTINGS</button>
     </div>
   )
 }

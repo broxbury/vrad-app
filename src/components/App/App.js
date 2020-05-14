@@ -16,7 +16,7 @@ class App extends Component {
         accountType: '',
         favoriteLocations: []
       },
-      isLoggedIn: false,
+      isLoggedIn: true,
       areas: [],
     };
   }
