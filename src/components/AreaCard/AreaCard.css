@@ -1,0 +1,29 @@
+.area-card {
+  background-color: #ffffff;
+  width: 30%;
+  height: 45vh;
+  margin: 3%;
+  text-align: center;
+  box-shadow: 0px 4px 40px rgba(0, 0, 0, 0.35);
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+.area-card:hover {
+  box-shadow: 0px 4px 40px rgba(0, 0, 0, 0.85);
+}
+
+
+.area-card h3 {
+  margin: 5px;
+}
+
+.area-card img {
+  padding-top: 25px;
+  width: 60px;
+}
+
+.area-card p {
+  font-size: 15px;
+  padding: 0px 25px;
+}

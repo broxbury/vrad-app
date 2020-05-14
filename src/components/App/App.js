@@ -4,7 +4,6 @@ import Login from '../LogIn/Login';
 import { Route, Redirect } from 'react-router-dom';
 import Header from '../Header/Header.js';
 import AreaContainer from '../AreaContainer/AreaContainer.js';
-// import DataManager from '../../DataManager/DataManager.js'
 
 class App extends Component {
   constructor(props) {
@@ -16,7 +15,7 @@ class App extends Component {
         accountType: '',
         favoriteLocations: []
       },
-      isLoggedIn: false,
+      isLoggedIn: true,
       areas: [],
       currentListings: []
     };
@@ -56,15 +55,13 @@ class App extends Component {
          .then(info => {
            return {
              nickname: area.area,
-            ...info
+             ...info
            }
          })
        })
       Promise.all(areaPromises).then(completeAreaData => this.setState({ areas: completeAreaData })).then(() => this.fetchListings(590))
     })
   }
-    
-  
 
   setLoginInfo = (info) => {
     const { username, email, accountType } = info;
@@ -78,6 +75,18 @@ class App extends Component {
     });
   };
 
+  logOut = () => {
+    this.setState({
+      userInfo: {
+        username: '',
+        email: '',
+        accountType: '',
+        favoriteLocations: []
+      },
+      isLoggedIn: false
+    })
+  };
+
   render() {
     return(
       <main className='app'>
@@ -87,7 +96,7 @@ class App extends Component {
         : <Redirect to = '/areas'/>}
 
         <Route path='/areas' >
-          <Header />
+          <Header logOut={this.logOut}/>
           <AreaContainer userInfo={this.state.userInfo} areas={this.state.areas}/>
         </Route>
         <Route exact path='/' >

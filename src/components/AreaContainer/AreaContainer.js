@@ -1,16 +1,27 @@
 import React from 'react';
-// import AreaCard from '../AreaCard.js';
+import AreaCard from '../AreaCard/AreaCard.js';
+import './AreaContainer.css';
 
 const AreaContainer = ({ userInfo, areas }) => {
-  console.log('name', userInfo.username);
+  const areaCards = areas.map(area => {
+    return(
+      <AreaCard areaInfo={area} />
+    )
+  });
+
   return(
-    <div className='area-container'>
-      <div className='welcome-banner'>
-        <h3>Where To, {userInfo.username}?</h3>
-        <p>Select from the areas bellow to find the perfect location for your next {userInfo.accountType} trip</p>
+    <section className='main-areas-section'>
+      <div className='area-container'>
+        <div className='welcome-banner'>
+          <h2>Where To, {userInfo.username}?</h2>
+          <p>Select from the areas bellow to find the perfect location for your next {userInfo.accountType}</p>
+        </div>
+        <div className='area-card-section'>
+          {areaCards}
+        </div>
       </div>
-    </div>
-  )
+    </section>
+  );
 }
 
 export default AreaContainer;

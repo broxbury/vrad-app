@@ -1,0 +1,29 @@
+.area-container {
+  background-image: url('./denver-skyline.jpeg');
+  background-size: cover;
+  background-position: 0% 45%;
+  opacity: 85%;
+  height: 65vh;
+  margin-top: 75px;
+}
+
+.welcome-banner {
+  background: rgba(255, 255, 255, 0.85);
+  border-radius: 5px;
+  width: 50%;
+  height: 15%;
+  position: absolute;
+  left: 25%;
+  top: 20%;
+  text-align: center;
+}
+
+.welcome-banner h2 {
+  text-transform: uppercase;
+}
+
+.area-card-section {
+  display: flex;
+  position: absolute;
+  top: 43%;
+}
