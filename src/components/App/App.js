@@ -56,11 +56,7 @@ class App extends Component {
          .then(info => {
            return {
              nickname: area.area,
-             id: info.id,
-             name: info.name,
-             location: info.location,
-             about: info.about,
-             listings: info.listings
+            ...info
            }
          })
        })
