@@ -41,9 +41,9 @@ export default class Login extends Component {
         <div className='drop-down'>
           <select required type='select' id='accountType' onChange={(e) => this.handleUserInfo(e)}>
             <option value=''>Account Type</option>
-            <option value='business'>Business</option>
+            <option value='business trip'>Business</option>
             <option value='vacation'>Vacation</option>
-            <option value='other'>Other</option>
+            <option value='trip'>Other</option>
           </select>
         </div>
           <button className='login-btn'>LOG IN</button>

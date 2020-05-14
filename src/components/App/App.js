@@ -16,7 +16,7 @@ class App extends Component {
         accountType: '',
         favoriteLocations: []
       },
-      isLoggedIn: false,
+      isLoggedIn: true,
       areas: [],
     };
   }
@@ -33,6 +33,7 @@ class App extends Component {
            return {
              id: info.id,
              name: info.name,
+             nickname: area.area,
              location: info.location,
              about: info.about,
              listings: info.listings
@@ -42,8 +43,6 @@ class App extends Component {
        Promise.all(areaPromises).then(completeAreaData => this.setState({ areas: completeAreaData }))
      })
   }
-    
-  
 
   setLoginInfo = (info) => {
     const { username, email, accountType } = info;
@@ -57,6 +56,18 @@ class App extends Component {
     });
   };
 
+  logOut = () => {
+    this.setState({
+      userInfo: {
+        username: '',
+        email: '',
+        accountType: '',
+        favoriteLocations: []
+      },
+      isLoggedIn: false
+    })
+  };
+
   render() {
     return(
       <main className='app'>
@@ -66,7 +77,7 @@ class App extends Component {
         : <Redirect to = '/areas'/>}
 
         <Route path='/areas' >
-          <Header />
+          <Header logOut={this.logOut}/>
           <AreaContainer userInfo={this.state.userInfo} areas={this.state.areas}/>
         </Route>
         <Route exact path='/' >
