@@ -16,7 +16,7 @@ class App extends Component {
         accountType: '',
         favoriteLocations: []
       },
-      isLoggedIn: false,
+      isLoggedIn: true,
       areas: [],
     };
   }
@@ -33,6 +33,7 @@ class App extends Component {
            return {
              id: info.id,
              name: info.name,
+             nickname: area.area,
              location: info.location,
              about: info.about,
              listings: info.listings
@@ -42,8 +43,8 @@ class App extends Component {
        Promise.all(areaPromises).then(completeAreaData => this.setState({ areas: completeAreaData }))
      })
   }
-    
-  
+
+
 
   setLoginInfo = (info) => {
     const { username, email, accountType } = info;
