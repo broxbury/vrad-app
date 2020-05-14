@@ -18,8 +18,32 @@ class App extends Component {
       },
       isLoggedIn: false,
       areas: [],
+      currentListings: []
     };
   }
+
+  fetchListings = (neighborhoodId) => {
+    const url = 'https://vrad-api.herokuapp.com';
+    const currentHood = this.state.areas.find(area => area.id === neighborhoodId)
+    const listingPromises = currentHood.listings.map(listing => {
+      return fetch(url + listing)
+      .then(response => response.json()
+      .then(info => {
+        return {
+          id: info.listing_id,
+          areaId: info.area_id,
+          name: info.name,
+          address: info.address,
+          details: info.details,
+          area: info.area
+        }
+      }))
+    })
+    Promise.all(listingPromises).then(completedListings => this.setState({ currentListings: completedListings }))
+  }
+
+
+  // Promise.all(listingPromises).then(completeCurrentListings => this.setState({ currentListings: completeCurrentListings}))
 
   componentDidMount() {
     const url = 'https://vrad-api.herokuapp.com'
@@ -31,6 +55,7 @@ class App extends Component {
          .then(response => response.json())
          .then(info => {
            return {
+             nickname: area.area,
              id: info.id,
              name: info.name,
              location: info.location,
@@ -39,8 +64,8 @@ class App extends Component {
            }
          })
        })
-       Promise.all(areaPromises).then(completeAreaData => this.setState({ areas: completeAreaData }))
-     })
+      Promise.all(areaPromises).then(completeAreaData => this.setState({ areas: completeAreaData })).then(() => this.fetchListings(590))
+    })
   }
     
   
