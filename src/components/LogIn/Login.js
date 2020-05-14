@@ -36,7 +36,7 @@ export default class Login extends Component {
         </div>
         <div className='field-space'>
           <span className=''></span>
-          <input id='email' type='text' className='email' required placeholder='Email' onChange={(e) => this.handleUserInfo(e)}></input>
+          <input id='email' type='email' className='email' required placeholder='Email' onChange={(e) => this.handleUserInfo(e)}></input>
         </div>
         <div className='drop-down'>
           <select required type='select' id='accountType' onChange={(e) => this.handleUserInfo(e)}>
