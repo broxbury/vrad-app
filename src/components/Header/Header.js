@@ -18,7 +18,12 @@ export default class Header extends Component {
           <button className='header-btns' id='areas'>areas</button>
         </div>
         <div className='right-btn'>
-          <button className='header-btns' id='log-out'>log out</button>
+          <button
+            onClick={() => this.props.logOut()} 
+            className='header-btns' id='log-out'
+          >
+            log out
+          </button>
         </div>
       </header>
     )

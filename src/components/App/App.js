@@ -16,7 +16,7 @@ class App extends Component {
         accountType: '',
         favoriteLocations: []
       },
-      isLoggedIn: true,
+      isLoggedIn: false,
       areas: [],
     };
   }
@@ -44,8 +44,6 @@ class App extends Component {
      })
   }
 
-
-
   setLoginInfo = (info) => {
     const { username, email, accountType } = info;
     this.setState({
@@ -58,6 +56,18 @@ class App extends Component {
     });
   };
 
+  logOut = () => {
+    this.setState({
+      userInfo: {
+        username: '',
+        email: '',
+        accountType: '',
+        favoriteLocations: []
+      },
+      isLoggedIn: false
+    })
+  };
+
   render() {
     return(
       <main className='app'>
@@ -67,7 +77,7 @@ class App extends Component {
         : <Redirect to = '/areas'/>}
 
         <Route path='/areas' >
-          <Header />
+          <Header logOut={this.logOut}/>
           <AreaContainer userInfo={this.state.userInfo} areas={this.state.areas}/>
         </Route>
         <Route exact path='/' >
