@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import Login from '../LogIn/Login';
-import { Route, Redirect } from 'react-router-dom';
+import { Route, Redirect, Switch } from 'react-router-dom';
 import Header from '../Header/Header.js';
 import AreaContainer from '../AreaContainer/AreaContainer.js';
 import LocationContainer from '../LocationContainer/LocationContainer.js'
@@ -22,27 +22,27 @@ class App extends Component {
     };
   }
 
-  fetchListings = (neighborhoodId) => {
-    const url = 'https://vrad-api.herokuapp.com';
-    const currentHood = this.state.areas.find(area => area.id === parseInt(neighborhoodId))
-    const listingPromises = currentHood.listings.map(listing => {
-      return fetch(url + listing)
-      .then(response => response.json()
-      .then(info => {
-        return {
-          id: info.listing_id,
-          areaId: info.area_id,
-          name: info.name,
-          address: info.address,
-          details: info.details,
-          area: info.area
-        }
-      }))
-    })
-    return Promise.all(listingPromises).then(values => {
-     return values
-    })
-  }
+  // fetchListings = (neighborhoodId) => {
+  //   const url = 'https://vrad-api.herokuapp.com';
+  //   const currentHood = this.state.areas.find(area => area.id === parseInt(neighborhoodId))
+  //   const listingPromises = currentHood.listings.map(listing => {
+  //     return fetch(url + listing)
+  //     .then(response => response.json()
+  //     .then(info => {
+  //       return {
+  //         id: info.listing_id,
+  //         areaId: info.area_id,
+  //         name: info.name,
+  //         address: info.address,
+  //         details: info.details,
+  //         area: info.area
+  //       }
+  //     }))
+  //   })
+  //   return Promise.all(listingPromises).then(values => {
+  //    return values
+  //   })
+  // }
 
 
   componentDidMount() {
@@ -87,7 +87,7 @@ class App extends Component {
       isLoggedIn: false
     })
   };
- 
+
   render() {
     return(
       <main className='app'>
@@ -96,13 +96,14 @@ class App extends Component {
          <Redirect to = '/'/>
         : <Redirect to = '/areas'/>}
 
-        <Route path='/areas' >
+        <Route exact path='/areas' >
           <Header logOut={this.logOut}/>
           <AreaContainer fetchListings={this.fetchListings} userInfo={this.state.userInfo} areas={this.state.areas}/>
         </Route>
-        {/* <Route path='/areas/:id/listings' render={({ match }) => { return <LocationContainer
-          listings={this.fetchListings(match.params.id)} match={ match }
-        />}} /> */}
+          <Route exact path='/areas/:id/listings' render={({ match }) =>
+          <LocationContainer
+          areaId={(parseInt(match.params.id))} areas={this.state.areas}
+          />} />
         <Route exact path='/' >
           <Login setLoginInfo={this.setLoginInfo} />
         </Route>
