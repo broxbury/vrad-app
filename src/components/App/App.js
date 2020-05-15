@@ -19,29 +19,28 @@ class App extends Component {
       },
       isLoggedIn: true,
       areas: [],
-      currentListings: []
     };
   }
 
-  fetchListings = (neighborhoodId) => {
-    const url = 'https://vrad-api.herokuapp.com';
-    const currentHood = this.state.areas.find(area => area.id === parseInt(neighborhoodId))
-    const listingPromises = currentHood.listings.map(listing => {
-      return fetch(url + listing)
-      .then(response => response.json()
-      .then(info => {
-        return {
-          id: info.listing_id,
-          areaId: info.area_id,
-          name: info.name,
-          address: info.address,
-          details: info.details,
-          area: info.area
-        }
-      }))
-    })
-    Promise.all(listingPromises).then(completeListings => this.setState({ currentListings: completeListings }))
-  }
+  // fetchListings = (neighborhoodId) => {
+  //   const url = 'https://vrad-api.herokuapp.com';
+  //   const currentHood = this.state.areas.find(area => area.id === parseInt(neighborhoodId))
+  //   const listingPromises = currentHood.listings.map(listing => {
+  //     return fetch(url + listing)
+  //     .then(response => response.json()
+  //     .then(info => {
+  //       return {
+  //         id: info.listing_id,
+  //         areaId: info.area_id,
+  //         name: info.name,
+  //         address: info.address,
+  //         details: info.details,
+  //         area: info.area
+  //       }
+  //     }))
+  //   })
+  //   Promise.all(listingPromises).then(completeListings => this.setState({ currentListings: completeListings }))
+  // }
 
 
   componentDidMount() {
@@ -101,7 +100,7 @@ class App extends Component {
         </Route>
           <Route exact path='/areas/:id/listings' render={({ match }) =>
           <LocationContainer
-          areaId={(parseInt(match.params.id))} listings={this.state.currentListings}
+          areaId={(parseInt(match.params.id))} areas={this.state.areas}
           />} />
         <Route exact path='/' >
           <Login setLoginInfo={this.setLoginInfo} />
