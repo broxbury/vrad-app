@@ -1,7 +1,8 @@
 import React from 'react';
 // import ListingCard from '../ListingCard.js';
 
-const LocationCard = (listingInfo) => {
+const LocationCard = ({ listingInfo }) => {
+  console.log(listingInfo)
   return(
     <div className='location-card'>
       <h2>{listingInfo.name}</h2>

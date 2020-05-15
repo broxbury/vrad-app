@@ -31,11 +31,10 @@ const AreaCard = ({ areaInfo, fetchListings }) => {
       <p>({areaInfo.nickname})</p>
       <p>{areaInfo.about}</p>
       <Link to={`/areas/${areaInfo.id}/listings`}>
-        <button id={areaInfo.id}>LISTINGS</button>
+        <button id={areaInfo.id} onClick={(e) => fetchListings(e.target.id)}>LISTINGS</button>
       </Link>
     </div>
   )
 }
 
-// (e) => fetchListings(e.target.id)
 export default AreaCard;
