@@ -18,7 +18,7 @@ class App extends Component {
         favoriteLocations: []
       },
       isLoggedIn: true,
-      areas: []
+      areas: [],
     };
   }
 
@@ -39,9 +39,7 @@ class App extends Component {
   //       }
   //     }))
   //   })
-  //   return Promise.all(listingPromises).then(values => {
-  //    return values
-  //   })
+  //   Promise.all(listingPromises).then(completeListings => this.setState({ currentListings: completeListings }))
   // }
 
 

@@ -1,11 +1,18 @@
 import React from 'react';
 import LocationCard from '../LocationCard/LocationCard.js';
 
-const LocationContainer = ({ areaId, areas }) => {
+class LocationContainer extends React.Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      areaId: this.props.areaId,
+      listings: []
+    }
+  }
 
-  const fetchedListings = (id) => {
+  componentDidMount = () => {
     const url = 'https://vrad-api.herokuapp.com';
-    const currentHood = areas.find(area => area.id === parseInt(id))
+    const currentHood = this.props.areas.find(area => area.id === this.state.areaId)
     const listingPromises = currentHood.listings.map(listing => {
       return fetch(url + listing)
       .then(response => response.json()
@@ -20,20 +27,20 @@ const LocationContainer = ({ areaId, areas }) => {
         }
       }))
     })
-    return Promise.all(listingPromises).then(data => {
-      data.map(listing => {
+    Promise.all(listingPromises).then(completeListings => this.setState({ listings: completeListings }))
+  }
+
+  render() {
+    const listingsToDisplay = this.state.listings.map(listing => {
       return <LocationCard key={listing.id} listingInfo={listing} />
-      })
-    })
-  };
-
-  const temp = fetchedListings(areaId);
-  console.log('temp', temp);
-
-  return(
-    <div className='location-container'>
-
-    </div>
-  )
+     })
+   
+    return(
+      <div className='location-container'>
+    {listingsToDisplay}
+      </div>
+    )
+  }
 }
+
 export default LocationContainer;

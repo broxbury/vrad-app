@@ -37,5 +37,4 @@ const AreaCard = ({ areaInfo, fetchListings }) => {
   )
 }
 
-// (e) => fetchListings(e.target.id)
 export default AreaCard;
