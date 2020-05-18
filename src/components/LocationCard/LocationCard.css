@@ -1,0 +1,23 @@
+.location-card {
+  background-color: #ffffff;
+  width: 500px;
+  height: 35vh;
+  margin: 3%;
+  text-align: center;
+  box-shadow: 0px 4px 40px rgba(0, 0, 0, 0.35);
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+.location-name-address {
+
+}
+
+.location-card-btns {
+
+}
+
+.location-img {
+  height: 100%;
+  background-size: cover;
+}

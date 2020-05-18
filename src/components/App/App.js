@@ -17,31 +17,10 @@ class App extends Component {
         accountType: '',
         favoriteLocations: []
       },
-      isLoggedIn: true,
+      isLoggedIn: false,
       areas: [],
     };
   }
-
-  // fetchListings = (neighborhoodId) => {
-  //   const url = 'https://vrad-api.herokuapp.com';
-  //   const currentHood = this.state.areas.find(area => area.id === parseInt(neighborhoodId))
-  //   const listingPromises = currentHood.listings.map(listing => {
-  //     return fetch(url + listing)
-  //     .then(response => response.json()
-  //     .then(info => {
-  //       return {
-  //         id: info.listing_id,
-  //         areaId: info.area_id,
-  //         name: info.name,
-  //         address: info.address,
-  //         details: info.details,
-  //         area: info.area
-  //       }
-  //     }))
-  //   })
-  //   Promise.all(listingPromises).then(completeListings => this.setState({ currentListings: completeListings }))
-  // }
-
 
   componentDidMount() {
     const url = 'https://vrad-api.herokuapp.com'
@@ -98,10 +77,11 @@ class App extends Component {
           <Header logOut={this.logOut}/>
           <AreaContainer fetchListings={this.fetchListings} userInfo={this.state.userInfo} areas={this.state.areas}/>
         </Route>
-          <Route exact path='/areas/:id/listings' render={({ match }) =>
+        <Route exact path='/areas/:id/listings' render={({ match }) =>
           <LocationContainer
-          areaId={(parseInt(match.params.id))} areas={this.state.areas}
-          />} />
+            areaId={(parseInt(match.params.id))} areas={this.state.areas}
+          />}
+        />
         <Route exact path='/' >
           <Login setLoginInfo={this.setLoginInfo} />
         </Route>

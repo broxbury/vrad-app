@@ -1,0 +1,19 @@
+.main-location-container {
+  position: relative;
+}
+
+.location-container {
+  background-size: cover;
+  background-position: 0% 45%;
+  opacity: 85%;
+  height: 65vh;
+  margin-top: 75px;
+}
+
+.location-card-section {
+  display: flex;
+  flex-wrap: wrap;
+  position: absolute;
+  top: 55%;
+  width: 100vw;
+}
