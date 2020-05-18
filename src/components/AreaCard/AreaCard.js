@@ -10,20 +10,19 @@ const AreaCard = ({ areaInfo, fetchListings }) => {
 
   const cardIcon = (name) => {
     switch(name) {
-      case 'River North' :
+      case 'River North':
        return RiNoIcon;
-     case 'Park Hill' :
+     case 'Park Hill':
       return ParkHillIcon;
-    case 'Lower Highlands' :
+    case 'Lower Highlands':
       return LoHiIcon;
-    case 'Capitol Hill' :
+    case 'Capitol Hill':
       return CapHillIcon;
     default:
       return null;
     }
   };
 
-  // console.log('info', areaInfo);
   return(
     <div className='area-card'>
       <img src={cardIcon(areaInfo.name)} />
