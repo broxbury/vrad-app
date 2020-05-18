@@ -75,27 +75,27 @@ class App extends Component {
 
         <Route exact path='/areas' >
           <Header logOut={this.logOut}/>
-          <AreaContainer fetchListings={this.fetchListings} 
-                         userInfo={this.state.userInfo} 
+          <AreaContainer fetchListings={this.fetchListings}
+                         userInfo={this.state.userInfo}
                          areas={this.state.areas} />
         </Route>
 
         <Route exact path='/areas/:id/listings' render={({ match }) =>
           <LocationContainer
-                             areaId={(parseInt(match.params.id))} 
-                             areas={this.state.areas} 
-                             logOut={this.logOut} 
-                             renderSingleCard={false} />} 
+                             areaId={(parseInt(match.params.id))}
+                             areas={this.state.areas}
+                             logOut={this.logOut}
+                             renderSingleCard={false} />}
 
                              />
 
-        <Route path='/areas/:id/listings/:listing_id' render={({ match }) => 
+        <Route path='/areas/:id/listings/:listing_id' render={({ match }) =>
 
-         { console.log(match)
-         return (<LocationContainer areaId={(parseInt(match.params.id))} 
+         { 
+         return (<LocationContainer areaId={(parseInt(match.params.id))}
                              listingId={match.params.listing_id}
-                             areas={this.state.areas} 
-                             logOut={this.logOut} 
+                             areas={this.state.areas}
+                             logOut={this.logOut}
                              renderSingleCard={true}/> )
          }
                              }
