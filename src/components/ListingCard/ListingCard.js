@@ -1,10 +1,15 @@
 import React from 'react';
 
-const ListingCard = (listingInfo) => {
+const ListingCard = ({ listingInfo }) => {
+  console.log('listingInfo', listingInfo);
   return(
     <div className='listing-card'>
      <div>
-       <h2>{listingInfo.name}</h2>
+        {listingInfo && listingInfo.name && (
+          <>
+          <h2>{listingInfo.name}</h2>
+          </>
+        )}
      </div>
     </div>
   )
