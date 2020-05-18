@@ -13,7 +13,8 @@
 .location-card-section {
   display: flex;
   flex-wrap: wrap;
+  justify-content: space-around;
   position: absolute;
-  top: 55%;
+  top: 45%;
   width: 100vw;
 }

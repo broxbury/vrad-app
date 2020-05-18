@@ -14,7 +14,6 @@ class LocationContainer extends React.Component {
     this.state = {
       areaId: this.props.areaId,
       listings: [],
-      favoriteListings: [],
     }
   }
 
