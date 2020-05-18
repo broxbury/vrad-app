@@ -1,0 +1,38 @@
+.area-container {
+  background-image: url('./denver-skyline.jpeg');
+  background-size: cover;
+  background-position: 0% 45%;
+  opacity: 85%;
+  height: 65vh;
+  margin-top: 75px;
+}
+
+.area-card-section {
+  position: absolute;
+  top: 43%;
+}
+
+.area-card-display {
+  border: 5px solid red;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(500px, 1fr));
+  background-attachment: fixed;
+  width: 100vw;
+}
+
+.area-container-single {
+  background-image: url('./denver-skyline.jpeg');
+  background-size: cover;
+  background-position: 0% 45%;
+  opacity: 85%;
+  height: 65vh;
+  margin-top: 75px;
+}
+
+
+.area-card-display-single {
+  border: 5px solid red;
+  display: grid;
+
+  width: 100vw;
+}

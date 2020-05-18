@@ -1,14 +1,13 @@
 import React from 'react';
 
-const ListingCard = () => {
+const ListingCard = (listingInfo) => {
   return(
     <div className='listing-card'>
-      {/* //Listing Title
-      //NickName/ Address
-      //Listing Info
-      //Listing Deatails
-      //Favorite btn
-      //Imgs */}
+     <div>
+       <h2>{listingInfo.name}</h2>
+     </div>
     </div>
   )
 }
+
+export default ListingCard

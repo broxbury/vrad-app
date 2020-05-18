@@ -1,17 +1,23 @@
 import React from 'react';
-// import ListingCard from '../ListingCard.js';
+import './LocationCard.css';
+import { Link } from 'react-router-dom';
 
 const LocationCard = ({ listingInfo }) => {
-  console.log(listingInfo)
   return(
     <div className='location-card'>
-      <h2>{listingInfo.name}</h2>
+      <div className='location-info'>
+        <h2>{listingInfo.name}</h2>
+        <p>{listingInfo.address.street}</p>
+        <div className='location-card-buttons'>
+        <button className='card-button'>FAVORITE</button>
+        <Link to= {`/areas/${listingInfo.areaId}/listings/${listingInfo.id}`}>
+        <button className='card-button'>SEE LISTING</button>
+        </Link>
+      </div>
+      <div className='location-img'></div>
+      </div>  
     </div>
-    //Location Title
-    //Address
-    //Favorite btn - change state of favorited on idivdual locations
-    //See Listing btn - <ListingCard />
-    //Img
+    
   )
 }
 export default LocationCard;

@@ -88,7 +88,7 @@ class App extends Component {
 
   render() {
     return(
-      <main className='app'>
+      <main className='app' data-testid='app'>
 
       {!this.state.isLoggedIn ?
          <Redirect to = '/'/>
@@ -96,12 +96,34 @@ class App extends Component {
 
         <Route exact path='/areas' >
           <Header logOut={this.logOut}/>
-          <AreaContainer fetchListings={this.fetchListings} userInfo={this.state.userInfo} areas={this.state.areas}/>
+          <AreaContainer fetchListings={this.fetchListings} 
+                         userInfo={this.state.userInfo} 
+                         areas={this.state.areas} />
         </Route>
-          <Route exact path='/areas/:id/listings' render={({ match }) =>
+
+        <Route exact path='/areas/:id/listings' render={({ match }) =>
           <LocationContainer
-          areaId={(parseInt(match.params.id))} areas={this.state.areas}
-          />} />
+                             areaId={(parseInt(match.params.id))} 
+                             areas={this.state.areas} 
+                             logOut={this.logOut} 
+                             renderSingleCard={false} />} 
+
+                             />
+
+        <Route path='/areas/:id/listings/:listing_id' render={({ match }) => 
+
+         { console.log(match)
+         return (<LocationContainer areaId={(parseInt(match.params.id))} 
+                             listingId={match.params.listing_id}
+                             areas={this.state.areas} 
+                             logOut={this.logOut} 
+                             renderSingleCard={true}/> )
+         }
+                             }
+
+                             />
+        
+        
         <Route exact path='/' >
           <Login setLoginInfo={this.setLoginInfo} />
         </Route>
@@ -109,5 +131,6 @@ class App extends Component {
     )
   }
 }
+{/* <LocationContainer currentListingId={parseInt(match.params.id)} /> */}
 
 export default App;
