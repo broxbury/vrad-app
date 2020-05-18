@@ -1,5 +1,8 @@
-.area-container {
-  background-image: url('./denver-skyline.jpeg');
+.main-location-container {
+  position: relative;
+}
+
+.location-container {
   background-size: cover;
   background-position: 0% 45%;
   opacity: 85%;
@@ -7,32 +10,11 @@
   margin-top: 75px;
 }
 
-.area-card-section {
+.location-card-section {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
   position: absolute;
-  top: 43%;
-}
-
-.area-card-display {
-  border: 5px solid red;
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(500px, 1fr));
-  background-attachment: fixed;
-  width: 100vw;
-}
-
-.area-container-single {
-  background-image: url('./denver-skyline.jpeg');
-  background-size: cover;
-  background-position: 0% 45%;
-  opacity: 85%;
-  height: 65vh;
-  margin-top: 75px;
-}
-
-
-.area-card-display-single {
-  border: 5px solid red;
-  display: grid;
-
+  top: 45%;
   width: 100vw;
 }

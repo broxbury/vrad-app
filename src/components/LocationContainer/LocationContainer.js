@@ -1,8 +1,13 @@
 import React from 'react';
 import LocationCard from '../LocationCard/LocationCard.js';
-import './LocationContainer.css';
 import Header from '../Header/Header.js';
-import ListingCard from '../ListingCard/ListingCard.js';
+import './LocationContainer.css';
+import RiNo from './locationImgs/RiNoBackground.jpg';
+import CapHill from './locationImgs/CapHillBackground.jpg';
+import LoHi from './locationImgs/LoHiBackground.jpg';
+import ParkHill from './locationImgs/ParkHillBackground.jpg';
+import ListingCard from '../ListingCard/ListingCard.js'
+
 
 class LocationContainer extends React.Component {
   constructor(props) {
@@ -32,37 +37,59 @@ class LocationContainer extends React.Component {
       }))
     })
     Promise.all(listingPromises).then(completeListings => this.setState({ listings: completeListings }))
-  }
+  };
+
+  backgroundImgFinder = (id) => {
+    switch(id) {
+      case 590:
+       return RiNo;
+     case 751:
+      return ParkHill;
+    case 408:
+      return LoHi;
+    case 240 :
+      return CapHill;
+    default:
+      return null;
+    }
+  };
 
 
   render() { 
-
+    const background = this.backgroundImgFinder(this.props.areaId)
+    
     const listingsToDisplay = this.state.listings.map(listing => {
          return <LocationCard key={listing.id} listingInfo={listing} />
     })
     const listingToDisplay = this.state.listings.find(listing => listing.id === parseInt(this.props.listingId))
+    
     const cardToDisplay = <ListingCard listingInfo={listingToDisplay}/>
+    
     if (!this.state.renderSingleCard) {
       return(
-        <div className='area-container'>
-        <Header logOut={this.props.logOut} />
-          <div className='area-card-section'>
-            <div className='area-card-display'>
+        <>
+        <Header logOut={this.logOut}/>
+        <div className='main-location-container'>
+          <div className='location-container' style={{backgroundImage: `url(${background})`}}>
+            <div className='location-card-section'>
               {listingsToDisplay}
             </div>
           </div>
-        </div> 
+        </div>
+      </>
       )
     } else {
       return(
-        <div className='area-container-single'>
-        <Header logOut={this.props.logOut} />
-          <div className='area-card-section'>
-            <div className='area-card-display-single'>
+        <>
+        <Header logOut={this.props.logOut}/>
+        <div className='main-location-container'>
+          <div className='location-container' style={{backgroundImage: `url(${background})`}}>
+            <div className='location-card-section'>
               {cardToDisplay}
             </div>
           </div>
-        </div> 
+        </div>
+      </>
       )
     }
   }

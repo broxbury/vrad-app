@@ -1,23 +1,29 @@
 import React from 'react';
+
 import './LocationCard.css';
 import { Link } from 'react-router-dom';
 
 const LocationCard = ({ listingInfo }) => {
+  console.log(listingInfo)
+  const locationImg = `/images/${listingInfo.id}_a.jpg`;
+
   return(
     <div className='location-card'>
-      <div className='location-info'>
+      <div className='location-name-address'>
         <h2>{listingInfo.name}</h2>
-        <p>{listingInfo.address.street}</p>
-        <div className='location-card-buttons'>
-        <button className='card-button'>FAVORITE</button>
-        <Link to= {`/areas/${listingInfo.areaId}/listings/${listingInfo.id}`}>
-        <button className='card-button'>SEE LISTING</button>
+        <h3>{listingInfo.address.street}</h3>
+      </div>
+      <div className='location-card-btns'>
+        <button className='favorite-btn'>Favorite
+        </button>
+        <Link to={`/areas/${listingInfo.areaId}/listings/${listingInfo.areaId}`}>
+          <button className='see-listing-btn'>See Listing
+          </button>
         </Link>
       </div>
-      <div className='location-img'></div>
-      </div>  
+      <div className='location-img' style={{backgroundImage: `url(${locationImg})`}}>
+      </div>
     </div>
-    
   )
 }
 export default LocationCard;
