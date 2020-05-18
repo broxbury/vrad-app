@@ -6,6 +6,7 @@ import RiNo from './locationImgs/RiNoBackground.jpg';
 import CapHill from './locationImgs/CapHillBackground.jpg';
 import LoHi from './locationImgs/LoHiBackground.jpg';
 import ParkHill from './locationImgs/ParkHillBackground.jpg';
+import ListingCard from '../ListingCard/ListingCard.js'
 
 
 class LocationContainer extends React.Component {
@@ -14,6 +15,7 @@ class LocationContainer extends React.Component {
     this.state = {
       areaId: this.props.areaId,
       listings: [],
+      renderSingleCard: this.props.renderSingleCard
     }
   }
 
@@ -52,15 +54,20 @@ class LocationContainer extends React.Component {
     }
   };
 
-  render() {
+
+  render() { 
+    const background = this.backgroundImgFinder(this.props.areaId)
+    
     const listingsToDisplay = this.state.listings.map(listing => {
-      return <LocationCard areaId={this.props.areaId} key={listing.id} listingInfo={listing} />
-    });
-
-    const background = this.backgroundImgFinder(this.props.areaId);
-
-    return(
-      <>
+         return <LocationCard key={listing.id} listingInfo={listing} />
+    })
+    const listingToDisplay = this.state.listings.find(listing => listing.id === parseInt(this.props.listingId))
+    
+    const cardToDisplay = <ListingCard listingInfo={listingToDisplay}/>
+    
+    if (!this.state.renderSingleCard) {
+      return(
+        <>
         <Header logOut={this.logOut}/>
         <div className='main-location-container'>
           <div className='location-container' style={{backgroundImage: `url(${background})`}}>
@@ -70,7 +77,21 @@ class LocationContainer extends React.Component {
           </div>
         </div>
       </>
-    )
+      )
+    } else {
+      return(
+        <>
+        <Header logOut={this.props.logOut}/>
+        <div className='main-location-container'>
+          <div className='location-container' style={{backgroundImage: `url(${background})`}}>
+            <div className='location-card-section'>
+              {cardToDisplay}
+            </div>
+          </div>
+        </div>
+      </>
+      )
+    }
   }
 }
 

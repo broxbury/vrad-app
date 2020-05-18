@@ -24,6 +24,7 @@ export default class Header extends Component {
           <button
             onClick={() => this.props.logOut()}
             className='header-btns' id='log-out'
+            placeholder='log-out'
           >
             log out
           </button>

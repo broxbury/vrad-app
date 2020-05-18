@@ -46,7 +46,7 @@ export default class Login extends Component {
             <option value='trip'>Other</option>
           </select>
         </div>
-          <button className='login-btn'>LOG IN</button>
+          <button placeholer='log-ing-btn' className='login-btn'>LOG IN</button>
         </form>
       </div>
     )

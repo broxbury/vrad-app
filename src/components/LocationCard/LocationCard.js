@@ -1,9 +1,9 @@
 import React from 'react';
-// import ListingCard from '../ListingCard.js';
+
 import './LocationCard.css';
 import { Link } from 'react-router-dom';
 
-const LocationCard = ({ listingInfo, areaId }) => {
+const LocationCard = ({ listingInfo }) => {
   console.log(listingInfo)
   const locationImg = `/images/${listingInfo.id}_a.jpg`;
 
@@ -16,7 +16,7 @@ const LocationCard = ({ listingInfo, areaId }) => {
       <div className='location-card-btns'>
         <button className='favorite-btn'>Favorite
         </button>
-        <Link to={`/areas/${areaId}/listings/${listingInfo.areaId}`}>
+        <Link to={`/areas/${listingInfo.areaId}/listings/${listingInfo.areaId}`}>
           <button className='see-listing-btn'>See Listing
           </button>
         </Link>
