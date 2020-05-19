@@ -6,6 +6,7 @@ import Header from '../Header/Header.js';
 import AreaContainer from '../AreaContainer/AreaContainer.js';
 import LocationContainer from '../LocationContainer/LocationContainer.js'
 import LocationCard from '../LocationCard/LocationCard';
+import FavoritesContainer from '../FavoritesContainer/FavoritesContainer.js'
 
 class App extends Component {
   constructor(props) {
@@ -114,13 +115,7 @@ class App extends Component {
 
                              />
         <Route exact path='/favorites' >
-        <LocationContainer 
-                             favoriteListings={this.state.favoriteListings}
-                             areas={this.state.areas} 
-                             logOut={this.logOut} 
-                             renderSingleCard={false}
-                             addFavorite={this.addFavorite}
-                             />
+        <FavoritesContainer favoriteListings={this.state.favoriteLocations} addFavorite={this.addFavorite} logOut={this.logOut}/>
         </Route>
         <Route path='/areas/:id/listings/:listing_id' render={({ match }) => 
 
