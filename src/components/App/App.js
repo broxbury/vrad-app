@@ -98,8 +98,8 @@ class App extends Component {
 
         <Route exact path='/areas' >
           <Header logOut={this.logOut}/>
-          <AreaContainer fetchListings={this.fetchListings} 
-                         userInfo={this.state.userInfo} 
+          <AreaContainer fetchListings={this.fetchListings}
+                         userInfo={this.state.userInfo}
                          areas={this.state.areas} />
         </Route>
 
@@ -124,8 +124,8 @@ class App extends Component {
         </Route>
         <Route path='/areas/:id/listings/:listing_id' render={({ match }) => 
 
-         { console.log(match)
-         return (<LocationContainer areaId={(parseInt(match.params.id))} 
+         { 
+         return (<LocationContainer areaId={(parseInt(match.params.id))}
                              listingId={match.params.listing_id}
                              areas={this.state.areas} 
                              logOut={this.logOut} 

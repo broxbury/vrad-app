@@ -60,44 +60,36 @@ class LocationContainer extends React.Component {
     }
   };
 
+  findListing = () => {
+    return this.state.listings.find(listing => listing.id === parseInt(this.props.listingId));
+  }
 
-  render() { 
+
+  render() {
     const background = this.backgroundImgFinder(this.props.areaId)
-    
+
     const listingsToDisplay = this.state.listings.map(listing => {
-         return <LocationCard key={listing.id} listingInfo={listing} addFavorite={this.addFavorite} />
+         return <LocationCard findListing={this.findListing} key={listing.id} listingInfo={listing} />
     })
-    const listingToDisplay = this.state.listings.find(listing => listing.id === parseInt(this.props.listingId))
-    
-    const cardToDisplay = <ListingCard listingInfo={listingToDisplay} addFavorite={this.addFavorite}/>
-    
-    if (!this.state.renderSingleCard) {
-      return(
-        <>
-        <Header logOut={this.logOut}/>
-        <div className='main-location-container'>
-          <div className='location-container' style={{backgroundImage: `url(${background})`}}>
-            <div className='location-card-section'>
-              {listingsToDisplay}
-            </div>
+
+    const listingToDisplay = this.findListing()
+
+    return (
+      <>
+      <Header logOut={this.props.logOut}/>
+      <div className='main-location-container'>
+        <div className='location-container' style={{backgroundImage: `url(${background})`}}>
+          <div className='location-card-section'>
+            {this.props.renderSingleCard && listingToDisplay ? (
+              <ListingCard listingInfo={listingToDisplay} />
+            ) : (
+              listingsToDisplay
+            )}
           </div>
         </div>
+      </div>
       </>
-      )
-    } else {
-      return(
-        <>
-        <Header logOut={this.props.logOut}/>
-        <div className='main-location-container'>
-          <div className='location-container' style={{backgroundImage: `url(${background})`}}>
-            <div className='location-card-section'>
-              {cardToDisplay}
-            </div>
-          </div>
-        </div>
-      </>
-      )
-    }
+    );
   }
 }
 
