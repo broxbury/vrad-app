@@ -15,6 +15,6 @@ describe('Header', () => {
 
     fireEvent.click(getByPlaceholderText('log-out'));
     expect(mockLogOut).toHaveBeenCalled()
-
   })
+  
 })
