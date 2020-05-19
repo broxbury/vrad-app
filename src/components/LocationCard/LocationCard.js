@@ -14,7 +14,7 @@ const LocationCard = (props) => {
         <h3>{listingInfo.address.street}</h3>
       </div>
       <div className='location-card-btns'> 
-        <button onClick={(e) => addFavorite(listingInfo.id)} className='favorite-btn'>Favorite
+        <button onClick={() => addFavorite(listingInfo.id)} className='favorite-btn'>Favorite
         </button>
         <Link to={`/areas/${listingInfo.areaId}/listings/${listingInfo.id}`}
               onClick={() => props.findListing(listingInfo.id)}
