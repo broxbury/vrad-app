@@ -18,6 +18,11 @@ class LocationContainer extends React.Component {
       renderSingleCard: this.props.renderSingleCard
     }
   }
+  
+  addFavorite = (listingId) => {
+    const listingToAdd = this.state.listings.find(listing => listing.id === parseInt(listingId))
+    this.props.addFavorite(listingToAdd)
+  }
 
   componentDidMount = () => {
     const url = 'https://vrad-api.herokuapp.com';
@@ -59,11 +64,11 @@ class LocationContainer extends React.Component {
     const background = this.backgroundImgFinder(this.props.areaId)
     
     const listingsToDisplay = this.state.listings.map(listing => {
-         return <LocationCard key={listing.id} listingInfo={listing} />
+         return <LocationCard key={listing.id} listingInfo={listing} addFavorite={this.addFavorite} />
     })
     const listingToDisplay = this.state.listings.find(listing => listing.id === parseInt(this.props.listingId))
     
-    const cardToDisplay = <ListingCard listingInfo={listingToDisplay}/>
+    const cardToDisplay = <ListingCard listingInfo={listingToDisplay} addFavorite={this.addFavorite}/>
     
     if (!this.state.renderSingleCard) {
       return(

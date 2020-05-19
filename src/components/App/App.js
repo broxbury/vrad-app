@@ -14,11 +14,12 @@ class App extends Component {
       userInfo: {
         username: '',
         email: '',
-        accountType: '',
-        favoriteLocations: []
+        accountType: ''
       },
-      isLoggedIn: false,
+      isLoggedIn: true,
       areas: [],
+      favoriteLocations: []
+
     };
   }
 
@@ -58,12 +59,34 @@ class App extends Component {
       userInfo: {
         username: '',
         email: '',
-        accountType: '',
-        favoriteLocations: []
+        accountType: ''
       },
-      isLoggedIn: false
+      isLoggedIn: false,
+      favoriteLocations: []
     })
   };
+
+  removeFavorite = async (listingToRemove) => {
+    const currentState = [...this.state.favoriteLocations];
+    const index = currentState.indexOf(listingToRemove);
+    if (index !== -1) {
+      const newState = currentState.splice(index, 1)
+      await this.setState({ favoriteLocations: newState})
+    }
+  }
+
+  addFavorite = async (listingToAdd) => {
+    if(this.state.favoriteLocations.includes(listingToAdd)) {
+      this.removeFavorite(listingToAdd, listingToAdd.id)
+    } else {
+      await this.setState({
+        favoriteLocations: [
+          ...this.state.favoriteLocations,
+         listingToAdd
+        ]
+      })
+    }
+   }
 
   render() {
     return(
@@ -85,7 +108,9 @@ class App extends Component {
                              areaId={(parseInt(match.params.id))} 
                              areas={this.state.areas} 
                              logOut={this.logOut} 
-                             renderSingleCard={false} />} 
+                             renderSingleCard={false} 
+                             addFavorite={this.addFavorite}
+                             />} 
 
                              />
 
@@ -96,8 +121,9 @@ class App extends Component {
                              listingId={match.params.listing_id}
                              areas={this.state.areas} 
                              logOut={this.logOut} 
-                             renderSingleCard={true}/> )
-         }
+                             renderSingleCard={true}
+                             addFavorite={this.addFavorite}
+                             />)}
                              }
 
                              />
