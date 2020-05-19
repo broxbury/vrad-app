@@ -67,7 +67,7 @@ class LocationContainer extends React.Component {
 
   render() {
     const background = this.backgroundImgFinder(this.props.areaId)
-
+    
     const listingsToDisplay = this.state.listings.map(listing => {
          return <LocationCard findListing={this.findListing} key={listing.id} listingInfo={listing} addFavorite={this.addFavorite}/>
     })

@@ -66,24 +66,19 @@ class App extends Component {
     })
   };
 
-  removeFavorite = async (listingToRemove) => {
+  removeFavorite = (listingToRemove) => {
     let currentState = [...this.state.favoriteLocations];
-    let index = await currentState.indexOf(listingToRemove);
-    if(this.state.favoriteLocations.length > 1) {
-      let newState = currentState.splice(index, 1)
-      await this.setState({ favoriteLocations: newState})
-    } else {
-      await this.setState({ favoriteLocations: []})
-    }
-      
-    
+    let filteredArray = currentState.filter(listing => listing.id !== listingToRemove.id)
+  
+    this.setState({ favoriteLocations: filteredArray})
+   
   }
 
   addFavorite = async (listingToAdd) => {
-    if(this.state.favoriteLocations.includes(listingToAdd)) {
+    if (this.state.favoriteLocations.includes(listingToAdd)) {
       await this.removeFavorite(listingToAdd)
     } else {
-      await this.setState({
+     await this.setState({
         favoriteLocations: [
           ...this.state.favoriteLocations,
          listingToAdd
