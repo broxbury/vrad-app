@@ -73,10 +73,10 @@ class LocationContainer extends React.Component {
       <div className='main-location-container'>
         <div className='location-container' style={{backgroundImage: `url(${background})`}}>
           <div className='location-card-section'>
-            {!this.props.renderSingleCard ? (
-              listingsToDisplay
-            ) : (
+            {this.props.renderSingleCard && listingToDisplay ? (
               <ListingCard listingInfo={listingToDisplay} />
+            ) : (
+              listingsToDisplay
             )}
           </div>
         </div>
