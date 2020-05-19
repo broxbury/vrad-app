@@ -5,7 +5,6 @@ import { Link } from 'react-router-dom';
 
 const LocationCard = (props) => {
   const { listingInfo } = props;
-  console.log(listingInfo)
   const locationImg = `/images/${listingInfo.id}_a.jpg`;
 
   return(
