@@ -14,11 +14,12 @@ class App extends Component {
       userInfo: {
         username: '',
         email: '',
-        accountType: '',
-        favoriteLocations: []
+        accountType: ''
       },
-      isLoggedIn: false,
+      isLoggedIn: true,
       areas: [],
+      favoriteLocations: []
+
     };
   }
 
@@ -58,12 +59,39 @@ class App extends Component {
       userInfo: {
         username: '',
         email: '',
-        accountType: '',
-        favoriteLocations: []
+        accountType: ''
       },
-      isLoggedIn: false
+      isLoggedIn: false,
+      favoriteLocations: []
     })
   };
+
+  removeFavorite = async (listingToRemove) => {
+    let currentState = [...this.state.favoriteLocations];
+    let index = await currentState.indexOf(listingToRemove);
+    if(this.state.favoriteLocations.length > 1) {
+      let newState = currentState.splice(index, 1)
+      await this.setState({ favoriteLocations: newState})
+    } else {
+      await this.setState({ favoriteLocations: []})
+    }
+      
+    
+  }
+
+  addFavorite = async (listingToAdd) => {
+    if(this.state.favoriteLocations.includes(listingToAdd)) {
+      await this.removeFavorite(listingToAdd)
+    } else {
+      await this.setState({
+        favoriteLocations: [
+          ...this.state.favoriteLocations,
+         listingToAdd
+        ]
+      })
+    }
+    console.log(this.state.favoriteLocations)
+   }
 
   render() {
     return(
@@ -82,22 +110,33 @@ class App extends Component {
 
         <Route exact path='/areas/:id/listings' render={({ match }) =>
           <LocationContainer
-                             areaId={(parseInt(match.params.id))}
-                             areas={this.state.areas}
-                             logOut={this.logOut}
-                             renderSingleCard={false} />}
+                             areaId={(parseInt(match.params.id))} 
+                             areas={this.state.areas} 
+                             logOut={this.logOut} 
+                             renderSingleCard={false} 
+                             addFavorite={this.addFavorite}
+                             />} 
 
                              />
-
-        <Route path='/areas/:id/listings/:listing_id' render={({ match }) =>
+        <Route exact path='/favorites' >
+        <LocationContainer 
+                             favoriteListings={this.state.favoriteListings}
+                             areas={this.state.areas} 
+                             logOut={this.logOut} 
+                             renderSingleCard={false}
+                             addFavorite={this.addFavorite}
+                             />
+        </Route>
+        <Route path='/areas/:id/listings/:listing_id' render={({ match }) => 
 
          { 
          return (<LocationContainer areaId={(parseInt(match.params.id))}
                              listingId={match.params.listing_id}
-                             areas={this.state.areas}
-                             logOut={this.logOut}
-                             renderSingleCard={true}/> )
-         }
+                             areas={this.state.areas} 
+                             logOut={this.logOut} 
+                             renderSingleCard={true}
+                             addFavorite={this.addFavorite}
+                             />)}
                              }
 
                              />

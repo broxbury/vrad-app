@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './Header.css';
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 
 export default class Header extends Component {
   constructor(props) {
@@ -15,7 +15,9 @@ export default class Header extends Component {
       <header>
         <div className='logo-left-btns'>
           <h1 className='logo'>vrad</h1>
+          <NavLink to='/favorites'>
           <button className='header-btns' id='favorites'>favorites</button>
+          </NavLink>
           <Link to={`/areas/`}>
             <button className='header-btns' id='areas'>areas</button>
           </Link>
