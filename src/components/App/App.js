@@ -113,7 +113,15 @@ class App extends Component {
                              />} 
 
                              />
-
+        <Route exact path='/favorites' >
+        <LocationContainer 
+                             favoriteListings={this.state.favoriteListings}
+                             areas={this.state.areas} 
+                             logOut={this.logOut} 
+                             renderSingleCard={false}
+                             addFavorite={this.addFavorite}
+                             />
+        </Route>
         <Route path='/areas/:id/listings/:listing_id' render={({ match }) => 
 
          { console.log(match)

@@ -15,7 +15,8 @@ class LocationContainer extends React.Component {
     this.state = {
       areaId: this.props.areaId,
       listings: [],
-      renderSingleCard: this.props.renderSingleCard
+      renderSingleCard: this.props.renderSingleCard,
+      favoriteLocations: this.props.favoriteLocations
     }
   }
   
