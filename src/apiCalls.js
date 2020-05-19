@@ -1,6 +1,6 @@
 
 
-export const getAreaData = () => {
+export const fetchedAreas = () => {
   const url = 'https://vrad-api.herokuapp.com'
   fetch(url + '/api/v1/areas')
    .then(response => response.json())
