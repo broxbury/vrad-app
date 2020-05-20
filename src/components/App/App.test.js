@@ -10,8 +10,10 @@ describe('App', () => {
   let mockLocationResponse;
   let mockAreaInfoResponse;
 
+ 
 
   beforeEach(() => {
+  
     mockAreaResponse = {
       areas: [
         {
@@ -20,7 +22,7 @@ describe('App', () => {
        }
       ]
     }
-
+ 
     mockAreaInfoResponse = {
       "id": 590,
           "name": "River North",
@@ -29,13 +31,13 @@ describe('App', () => {
           "region_code": 6356834,
           "quick_search": "o5kod9f5cqo0",
           "listings": [
-              "/api/v1/listings/3"
+              "/api/v1/listings/3" 
           ]
     }
 
-    mockLocationResponse = [
+    mockLocationResponse = 
       {
-        listing_id:3,
+        listing_id: 3,
         area_id: 590,
         name: 'Hip RiNo Party Spot',
         address: {
@@ -55,13 +57,13 @@ describe('App', () => {
         area: 'rino',
         db_connect: 834470
       }
-    ];
-  });
-
+  
+    })
+ 
 
   it('When the App loads, we should see the login Page', () => {
-    fetchedAreas.mockResolvedValue(mockAreaResponse);
-    fetchedAreaInfo.mockResolvedValue(mockAreaInfoResponse);
+    fetchedAreas.mockResolvedValueOnce(mockAreaResponse);
+    fetchedAreaInfo.mockResolvedValueOnce(mockAreaInfoResponse);
     const { getByText, getByTestId } = render(
       <MemoryRouter>
         <App />
@@ -86,7 +88,7 @@ describe('App', () => {
       </MemoryRouter>
     );
 
-    // await waitFor(() => {
+    // await waitFor(() => { 
     //   fireEvent.change(getByPlaceholderText('Username'), {
     //     target: {value: 'Mock User'}
     //   });
@@ -106,16 +108,16 @@ describe('App', () => {
   });
 
   it('Should change to the desired Location Page', async () => {
-    fetchedAreas.mockResolvedValue(mockAreaResponse);
+    fetchedAreas.mockResolvedValueOnce(mockAreaResponse);
     fetchedAreaInfo.mockResolvedValueOnce(mockAreaInfoResponse);
-    fetchedLocations.mockResolvedValue(mockLocationResponse);
+    fetchedLocations.mockResolvedValueOnce(mockLocationResponse);
 
-    const { getByText, getByPlaceHolder, getByLableText } = render(
-      <BrowserRouter>
+    const { getByText, getByPlaceHolderText, getByLabelText } = render(
+      <MemoryRouter>
         <App />
-      </BrowserRouter>
+      </MemoryRouter>
     );
-    //
+  
     // await waitFor(() => {
     //   fireEvent.change(getByPlaceholderText('Username'), {
     //     target: {value: 'Mock User'}
@@ -130,25 +132,26 @@ describe('App', () => {
 
     fireEvent.click(getByText('LOG IN'));
 
-    const rino = await waitFor(() => getByText('River North'));
-    const allListingBtn = await waitFor(() => getByText('LISTINGS'));
+    
+    const allListingBtn = await waitFor(() => getByLabelText('listings'));
 
-    fireEvent.click(allListingBtn);
+    fireEvent.click(allListingBtn); 
 
     const rinoListing = await waitFor(() => getByText('Hip RiNo Party Spot'));
 
     expect(rinoListing).toBeInTheDocument;
   });
 
-  it.skip('Should change to desired single Listing Page', async () => {
-    fetchedAreas.mockResolvedValue(mockAreaResponse);
-    fetchedAreaInfo.mockResolvedValueOnce(mockAreaInfoResponse);
-    fetchedLocations.mockResolvedValue(mockLocationResponse);
 
-    const { getByText, getByPlaceHolder, getByLableText } = render(
-      <BrowserRouter>
+  it.skip('Should change to desired single Listing Page', async () => {
+    fetchedAreas.mockResolvedValueOnce(mockAreaResponse);
+    fetchedAreaInfo.mockResolvedValueOnce(mockAreaInfoResponse);
+    fetchedLocations.mockResolvedValueOnce([mockLocationResponse]);
+
+    const { getByText, getByPlaceHolder, getByLabelText } = render(
+      <MemoryRouter>
         <App />
-      </BrowserRouter>
+      </MemoryRouter>
     );
 
     // await waitFor(() => {
@@ -161,32 +164,31 @@ describe('App', () => {
     //   fireEvent.change(getByLableText('Account Type'), {
     //     target: {value: 'vacation'}
     //   });
-    // });
+    // }); fireEvent.click(getByText('LOG IN'));
 
     fireEvent.click(getByText('LOG IN'));
 
-    const rino = await waitFor(() => getByText('River North'));
-    const allListingBtn = await waitFor(() => getByText('LISTINGS'));
+    const allListingBtn = await waitFor(() => getByLabelText('listings'));
 
-    fireEvent.click(allListingBtn);
+    fireEvent.click(allListingBtn); 
 
-    const seeListingBtn = await waitFor(() => getByText('See Listing'));
+  
+    const seeListingBtn = await waitFor(() => getByLabelText('listing'))
+    fireEvent.click(seeListingBtn)
 
-    fireEvent.click(seeListingBtn);
-
-    const features = await waitFor(() => getByText('Hot Tub'))
-    const details = await waitFor(() => getByText('Cost Per Night: $420'))
-    const address = await waitFor(() => getByText('rino/ 2250 Lawrence St, 80205'));
-
-    expect(features).toBeInTheDocument;
-    expect(details).toBeInTheDocument;
-    expect(address).toBeInTheDocument;
+    // const features = await waitFor(() => getByText('Hot Tub'))
+    // // const details = await waitFor(() => getByText('Cost Per Night: $420'))
+    // // const address = await waitFor(() => getByText('rino/ 2250 Lawrence St, 80205'));
+ 
+    // // expect(features).toBeInTheDocument;
+    // // expect(details).toBeInTheDocument;
+    // expect(features).toBeInTheDocument;
   });
 
   it.skip('Should change to Favorites Page', async () => {
-    fetchedAreas.mockResolvedValue(mockAreaResponse);
-    fetchedAreaInfo.mockResolvedValueOnce(mockAreaInfoResponse);
-    fetchedLocations.mockResolvedValue(mockLocationResponse);
+    // fetchedAreas.mockResolvedValue(mockAreaResponse);
+    // fetchedAreaInfo.mockResolvedValueOnce(mockAreaInfoResponse);
+    // fetchedLocations.mockResolvedValue(mockLocationResponse);
 
     const { getByText, getByPlaceHolder, getByLableText } = render(
       <BrowserRouter>
@@ -229,6 +231,5 @@ describe('App', () => {
     expect(testFavoriteListing).toBeInTheDocument;
 
   });
-
 
 })
