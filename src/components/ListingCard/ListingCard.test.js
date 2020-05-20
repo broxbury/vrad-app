@@ -41,12 +41,12 @@ describe('ListingCard', () => {
     const header = getByText('Hip RiNo Party Spot');
     const listinInfo = getByText('Num Of Beds: 3');
     const listingFeatures = getByText('espresso machine');
-    // const favoriteBtn = getByLabelText('favorite');
+    const favoriteBtn = getByLabelText('favorite');
 
     expect(header).toBeInTheDocument;
     expect(listinInfo).toBeInTheDocument;
     expect(listingFeatures).toBeInTheDocument;
-    // expect(favoriteBtn).toBeInTheDocument;
+    expect(favoriteBtn).toBeInTheDocument;
   });
 
   it('Should be able to add listing to favorites', () => {
