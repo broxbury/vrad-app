@@ -25,13 +25,17 @@ const AreaCard = ({ areaInfo, fetchListings }) => {
 
   return(
     <div className='area-card'>
-      <img src={cardIcon(areaInfo.name)} />
-      <h3>{areaInfo.name}</h3>
-      <p>({areaInfo.nickname})</p>
-      <p>{areaInfo.about}</p>
-      <Link to={`/areas/${areaInfo.id}/listings`}>
-        <button  aria-label='listings' className='listing-btn' id={areaInfo.id}>LISTINGS</button>
-      </Link>
+      <div className='card-img-info'>
+        <img src={cardIcon(areaInfo.name)} />
+        <h3>{areaInfo.name}</h3>
+        <p>({areaInfo.nickname})</p>
+        <p>{areaInfo.about}</p>
+      </div>
+      <div className='card-btn-container'>
+        <Link to={`/areas/${areaInfo.id}/listings`}>
+          <button  aria-label='listings' className='listing-btn' id={areaInfo.id}>LISTINGS</button>
+        </Link>
+      </div>
     </div>
   )
 }
