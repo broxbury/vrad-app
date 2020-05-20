@@ -29,6 +29,7 @@ class LocationContainer extends React.Component {
   componentDidMount = () => {
     const url = 'https://vrad-api.herokuapp.com';
     const currentHood = this.props.areas.find(area => area.id === this.state.areaId)
+    console.log('current', currentHood);
     const listingPromises = currentHood.listings.map(listing => {
       return fetchedLocations(listing)
       .then(info => {
