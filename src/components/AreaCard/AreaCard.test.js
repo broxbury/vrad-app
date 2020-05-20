@@ -28,7 +28,7 @@ describe('AreaCard', () => {
   });
 
   it('Displays the chossen areas information', () => {
-    const { getByText, container } = render(
+    const { getByText } = render(
       <BrowserRouter>
         <AreaCard
           areaInfo={mockArea}

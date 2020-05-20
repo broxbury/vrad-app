@@ -13,7 +13,7 @@ const AreaContainer = ({ userInfo, areas, fetchListings }) => {
     <section className='main-areas-section'>
       <div className='area-container'>
         <div className='welcome-banner'>
-          <h2 data-testid='where-to'>Where To, {userInfo.username}?</h2>
+          <h2 aria-labelledby='where-to'>Where To, {userInfo.username}?</h2>
           <p>Select from the areas bellow to find the perfect location for your next {userInfo.accountType}</p>
         </div>
         <div className='area-card-section'>
