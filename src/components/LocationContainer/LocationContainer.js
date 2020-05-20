@@ -26,12 +26,10 @@ class LocationContainer extends React.Component {
     this.props.addFavorite(listingToAdd)
   }
 
-  componentDidMount = () => {
-    const url = 'https://vrad-api.herokuapp.com';
+  componentDidMount = async () => {
     const currentHood = this.props.areas.find(area => area.id === this.state.areaId)
-    console.log('current', currentHood);
     const listingPromises = currentHood.listings.map(listing => {
-      return fetchedLocations(listing)
+     return fetchedLocations(listing)
       .then(info => {
         return {
           id: info.listing_id,

@@ -49,7 +49,7 @@ describe('AreaContainer', () => {
 
    const { getByText } = render(
     <MemoryRouter>
-      <AreaContainer areas={areaDat} userInfo={user} />
+      <AreaContainer areas={areaData} userInfo={user} />
    </MemoryRouter>)
 
    expect(getByText('Where To, Michelle?')).toBeInTheDocument();
