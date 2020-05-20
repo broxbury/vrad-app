@@ -154,34 +154,38 @@ describe('App', () => {
     fetchedAreaInfo.mockResolvedValueOnce(mockAreaInfoResponse);
     fetchedLocations.mockResolvedValue(mockLocationResponse);
 
-    const { getByText, getByPlaceHolder, getByLableText } = render(
+    const { getByText, getByPlaceHolder, getByLabelText } = render(
       <BrowserRouter>
         <App />
       </BrowserRouter>
     );
 
+<<<<<<< HEAD
+
+=======
+>>>>>>> master
     fireEvent.click(getByText('LOG IN'));
+    //LocationContainer - event happens on the listings btn
+    const allListingBtn = await waitFor(() => getByLabelText('listings'));
 
-    const rino = await waitFor(() => getByText('River North'));
-    const allListingBtn = await waitFor(() => getByText('LISTINGS'));
+    fireEvent.click(allListingBtn); 
 
-    fireEvent.click(allListingBtn);
-
-    const seeListingBtn = await waitFor(() => getByText('See Listing'));
+    //click on individual listing
+    const seeListingBtn = await waitFor(() => getByLabelText('listing'))
 
     fireEvent.click(seeListingBtn);
+    //user favorites the page
+    const favoriteListings = await waitFor(() => getByLabelText('favorite'))
 
-    const favoriteBtn = await waitFor(() => getByText('Favorite'));
-    const seeFavoritesBtn = await waitFor(() => getByText('Favorites'));
+    fireEvent.click(favoriteListings);
+    //user navigates to the favorites page
+    const navigateToFavorites = getByLabelText('favorite-page')
+    fireEvent.click(navigateToFavorites)
 
-    fireEvent.click(favoriteBtn);
-
-    const favoritePage = await waitFor(() => getByText('Favorite Listings'));
+    // const favoritePage = await waitFor(() => getByText('Favorite Listings'));
     const testFavoriteListing = await waitFor(() => getByText('Hip RiNo Party Spot'));
 
-    expect(favoritePage).toBeInTheDocument;
+    // expect(favoritePage).toBeInTheDocument;
     expect(testFavoriteListing).toBeInTheDocument;
-
   });
-
 })
