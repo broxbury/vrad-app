@@ -17,7 +17,7 @@ export default class Header extends Component {
         <div className='logo-left-btns'>
           <h1 className='logo'>vrad</h1>
           <NavLink to='/favorites' exact className='header-btns' activeClassName='header-btns-active'>
-          <h3>{`favorites-${favoriteCount}`}</h3>
+          <h3>{`favorites(${favoriteCount})`}</h3>
           </NavLink>
           <NavLink to={`/areas`} exact className='header-btns' activeClassName='header-btns-active'>
             <h3>areas</h3>

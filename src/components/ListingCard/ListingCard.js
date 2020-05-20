@@ -2,7 +2,6 @@ import React from 'react';
 import './ListingCard.css';
 
 const ListingCard = ({ listingInfo, addFavorite }) => {
-  console.log('listingInfo', listingInfo)
 
   const listingFeatures = listingInfo.details.features.map((feature, i) => {
     let featureItem = <li key={i}>{feature}</li>;
@@ -28,7 +27,7 @@ const ListingCard = ({ listingInfo, addFavorite }) => {
               {listingFeatures}
             </ul>
           </div>
-          <button onClick={() => addFavorite(listingInfo.id)} className='favorite-btn'>Favorite</button>
+          <button onClick={() => addFavorite(listingInfo.id)} aria-label='favorite' className='favorite-btn'>Favorite</button>
         </div>
         <div className='listing-imgs'>
           <img src={`/images/${listingInfo.id}_a.jpg`} />
