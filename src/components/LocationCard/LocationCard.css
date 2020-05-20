@@ -11,7 +11,7 @@
 }
 
 .location-name-address {
-
+  padding-left: 5%;
 }
 
 .location-card-btns {
@@ -26,12 +26,9 @@
   background-position: 0% 45%;
 }
 
-
 .see-listing-btn, .favorite-btn {
   cursor: pointer;
   border-radius: 10px;
-  width: 120px;
-  height: 45px;
   background-color: rgba(2, 111, 183, 0.87);
   border-radius: 10px;
   outline: none;
@@ -40,7 +37,21 @@
   font-size: 15px;
 }
 
-.see-listing-btn:hover {
+.see-listing-btn:hover, .favorite-btn:hover {
   background-color: rgba(254, 184, 96, 0.87);
   color: #000000;
+}
+
+.see-listing-btn {
+  position: relative;
+  left: 25%;
+  width: 150px;
+  height: 45px;
+}
+
+.favorite-btn {
+  width: 120px;
+  height: 45px;
+  position: relative;
+  right: 6%;
 }
