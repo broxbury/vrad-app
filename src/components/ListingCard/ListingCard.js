@@ -2,7 +2,6 @@ import React from 'react';
 import './ListingCard.css';
 
 const ListingCard = ({ listingInfo, addFavorite }) => {
-  console.log('listingInfo', listingInfo)
 
   const listingFeatures = listingInfo.details.features.map((feature, i) => {
     let featureItem = <li key={i}>{feature}</li>;

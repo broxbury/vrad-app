@@ -1,5 +1,5 @@
 import React from 'react';
-import { render, fireEvent } from '@testing-library/react';
+import { render } from '@testing-library/react';
 import LocationCard from './LocationCard';
 import { BrowserRouter } from 'react-router-dom';
 
@@ -34,7 +34,6 @@ describe('LocationCard', () => {
         <LocationCard listingInfo={locationData}/>
       </BrowserRouter>
       )
-
 
       const listingName = getByText('Hip RiNo Party Spot')
       expect(listingName).toBeInTheDocument()
