@@ -105,7 +105,7 @@ describe('App', () => {
     expect(rino).toBeInTheDocument();
   });
 
-  it.skip('Should change to the desired Location Page', async () => {
+  it('Should change to the desired Location Page', async () => {
     fetchedAreas.mockResolvedValue(mockAreaResponse);
     fetchedAreaInfo.mockResolvedValueOnce(mockAreaInfoResponse);
     fetchedLocations.mockResolvedValue(mockLocationResponse);
@@ -140,7 +140,7 @@ describe('App', () => {
     expect(rinoListing).toBeInTheDocument;
   });
 
-  it('Should change to desired single Listing Page', async () => {
+  it.skip('Should change to desired single Listing Page', async () => {
     fetchedAreas.mockResolvedValue(mockAreaResponse);
     fetchedAreaInfo.mockResolvedValueOnce(mockAreaInfoResponse);
     fetchedLocations.mockResolvedValue(mockLocationResponse);
