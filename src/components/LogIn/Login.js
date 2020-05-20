@@ -30,23 +30,24 @@ export default class Login extends Component {
     return(
       <div className='login-container'>
         <form onSubmit={(e) => this.handleLogIn(e)} className='login-form' action='#' method=''>
-        <div className='field'>
-          <span className='input-span'></span>
-          <input id='username' onChange={(e) => this.handleUserInfo(e)} className='username' type='text' required placeholder='Username' value={this.state.value}></input>
-        </div>
-        <div className='field-space'>
-          <span className=''></span>
-          <input id='email' type='email' className='email' required placeholder='Email' onChange={(e) => this.handleUserInfo(e)}></input>
-        </div>
-        <div className='drop-down'>
-          <select required type='select' aria-label="account type" id='accountType' onChange={(e) => this.handleUserInfo(e)}>
-            <option value=''>Account Type</option>
-            <option value='business trip'>Business</option>
-            <option value='vacation'>Vacation</option>
-            <option value='trip'>Other</option>
-          </select>
-        </div>
-          <button placeholer='log-ing-btn' className='login-btn'>LOG IN</button>
+          <h1 className='login-logo'>Vrad</h1>
+          <div classNmae='form-container'>
+            <div className='field'>
+              <input id='username' onChange={(e) => this.handleUserInfo(e)} className='username' type='text' required placeholder='Username' value={this.state.value}></input>
+            </div>
+            <div className='field'>
+              <input id='email' type='email' className='email' required placeholder='Email' onChange={(e) => this.handleUserInfo(e)}></input>
+            </div>
+            <div className='drop-down'>
+              <select className='drop-down-field' required type='select' aria-label="account type" id='accountType' onChange={(e) => this.handleUserInfo(e)}>
+                <option value=''>Account Type</option>
+                <option value='business trip'>Business</option>
+                <option value='vacation'>Vacation</option>
+                <option value='trip'>Other</option>
+              </select>
+            </div>
+              <button placeholer='log-ing-btn' className='login-btn'>LOG IN</button>
+          </div>
         </form>
       </div>
     )

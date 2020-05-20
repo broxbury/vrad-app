@@ -160,15 +160,11 @@ describe('App', () => {
       </BrowserRouter>
     );
 
-<<<<<<< HEAD
-
-=======
->>>>>>> master
     fireEvent.click(getByText('LOG IN'));
     //LocationContainer - event happens on the listings btn
     const allListingBtn = await waitFor(() => getByLabelText('listings'));
 
-    fireEvent.click(allListingBtn); 
+    fireEvent.click(allListingBtn);
 
     //click on individual listing
     const seeListingBtn = await waitFor(() => getByLabelText('listing'))

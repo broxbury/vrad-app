@@ -4,8 +4,24 @@
   background-size: cover;
 }
 
+.logo-form-container {
+  display: flex;
+}
+
+.login-logo {
+  font-size: 90px;
+  writing-mode: vertical-rl;
+  text-orientation: upright;
+  text-transform: uppercase;
+  margin: 0px;
+  position: relative;
+  bottom: 10%;
+  left: 5%;
+  font-weight: bold;
+}
+
 .login-form {
-  background: rgba(255, 252, 252, 0.92);
+  background: rgba(255, 252, 252, 0.95);
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   border-radius: 9px;
   left: 50%;
@@ -14,7 +30,50 @@
   text-align: center;
   top: 50%;
   transform: translate(-50%, -50%);
-  width: 370px;
+  width: 45%;
+  height: 50% ;
   z-index: 999;
+  display: flex;
+  justify-content: space-around;
 }
 
+.field, .drop-down-field, .login-btn {
+  height: 45px;
+  width: 310px;
+  position: relative;
+  top: 2%;
+  left: 10%;
+  margin: 6% 0;
+  border: none;
+}
+
+.field {
+  background: rgba(196, 196, 196, 0.80);
+  box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.field input {
+  background: transparent;
+  border: none;
+  color: #000000;
+  font-size: 25px;
+  font-weight: bold;
+  height: 100%;
+  margin-left: 10px;
+  outline: none;
+  width: 100%;
+}
+
+.drop-down-field {
+  background: #FEB860;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  font-size: 25px;
+  text-align: center;
+}
+
+.login-btn {
+  background: rgba(2, 111, 183, 0.87);
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  font-size: 25px;
+  color: #ffffff;
+}

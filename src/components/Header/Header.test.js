@@ -6,19 +6,19 @@ import { MemoryRouter } from 'react-router-dom';
 
 describe('Header', () => {
   it('Should render a logo and a favorites, areas and log out button', () => {
-    const { getByText, getByLableText } = render(
+    const { getByText, getByLabelText } = render(
       <MemoryRouter>
         <Header />
       </MemoryRouter>
     );
 
     const logo = getByText('vrad');
-    // const favoritesBtn = getByText('favorites-0');
+    const favoritesBtn = getByLabelText('favorite-page');
     const areasBtn = getByText('areas');
     const logoBtn = getByText('log out');
 
     expect(logo).toBeInTheDocument;
-    // expect(favoritesBtn).toBeInTheDocument;
+    expect(favoritesBtn).toBeInTheDocument;
     expect(areasBtn).toBeInTheDocument;
     expect(logoBtn).toBeInTheDocument;
   });
