@@ -57,7 +57,6 @@ describe('App', () => {
         area: 'rino',
         db_connect: 834470
       }
-  
     })
  
 
@@ -130,6 +129,7 @@ describe('App', () => {
     //   });
     // });
 
+
     fireEvent.click(getByText('LOG IN'));
 
     
@@ -143,12 +143,12 @@ describe('App', () => {
   });
 
 
-  it.skip('Should change to desired single Listing Page', async () => {
+  it('Should change to desired single Listing Page', async () => {
     fetchedAreas.mockResolvedValueOnce(mockAreaResponse);
     fetchedAreaInfo.mockResolvedValueOnce(mockAreaInfoResponse);
-    fetchedLocations.mockResolvedValueOnce([mockLocationResponse]);
+    fetchedLocations.mockResolvedValue(mockLocationResponse);
 
-    const { getByText, getByPlaceHolder, getByLabelText } = render(
+    const { getByText, getByLabelText } = render(
       <MemoryRouter>
         <App />
       </MemoryRouter>
@@ -174,21 +174,23 @@ describe('App', () => {
 
   
     const seeListingBtn = await waitFor(() => getByLabelText('listing'))
-    fireEvent.click(seeListingBtn)
 
+    fireEvent.click(seeListingBtn);
+
+    const features = await waitFor(() => getByText('hot tub'))
     // const features = await waitFor(() => getByText('Hot Tub'))
     // // const details = await waitFor(() => getByText('Cost Per Night: $420'))
     // // const address = await waitFor(() => getByText('rino/ 2250 Lawrence St, 80205'));
  
-    // // expect(features).toBeInTheDocument;
+    expect(features).toBeInTheDocument;
     // // expect(details).toBeInTheDocument;
     // expect(features).toBeInTheDocument;
   });
 
-  it.skip('Should change to Favorites Page', async () => {
-    // fetchedAreas.mockResolvedValue(mockAreaResponse);
-    // fetchedAreaInfo.mockResolvedValueOnce(mockAreaInfoResponse);
-    // fetchedLocations.mockResolvedValue(mockLocationResponse);
+  it('Should change to Favorites Page', async () => {
+    fetchedAreas.mockResolvedValue(mockAreaResponse);
+    fetchedAreaInfo.mockResolvedValueOnce(mockAreaInfoResponse);
+    fetchedLocations.mockResolvedValue(mockLocationResponse);
 
     const { getByText, getByPlaceHolder, getByLableText } = render(
       <BrowserRouter>
