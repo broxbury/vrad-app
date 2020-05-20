@@ -29,8 +29,8 @@ const AreaCard = ({ areaInfo, fetchListings }) => {
       <h3>{areaInfo.name}</h3>
       <p>({areaInfo.nickname})</p>
       <p>{areaInfo.about}</p>
-      <Link to={`/areas/${areaInfo.id}/listings`}>
-        <button  aria-label='listings' className='listing-btn' id={areaInfo.id}>LISTINGS</button>
+      <Link to={`/areas/${areaInfo.id}/listings`} aria-label='listings'>
+        <button aria-label='Listings' className='listing-btn' id={areaInfo.id}>LISTINGS</button>
       </Link>
     </div>
   )

@@ -33,7 +33,7 @@ describe('AreaContainer', () => {
       },
       {
             'id': 751,
-            'name': 'Park Hill',
+            'name': 'Park Hill', 
             'nickName': 'Park Hill',
             'location': 'East of Downtown Denver',
             'about': 'Park Hill features one of the best views of the downtown area and surrounding mountains. With easy access to City Park and the major highways, Park Hill also includes many unique styles of homes.',

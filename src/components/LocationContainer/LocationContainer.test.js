@@ -77,6 +77,4 @@ describe('LocationContainer', () => {
     const listingPrice = await waitFor(() => getByText('hot tub'));
     expect(listingPrice).toBeInTheDocument();
   });
-
-
 });

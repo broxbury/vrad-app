@@ -60,23 +60,6 @@ describe('App', () => {
     })
 
 
-  it('When the App loads, we should see the login Page', () => {
-    fetchedAreas.mockResolvedValueOnce(mockAreaResponse);
-    fetchedAreaInfo.mockResolvedValueOnce(mockAreaInfoResponse);
-    const { getByText, getByTestId } = render(
-      <MemoryRouter>
-        <App />
-      </MemoryRouter>
-    )
-
-    //assert the app renders the log in container:
-    expect(getByText('Account Type')).toBeInTheDocument();
-    // fire log in event:
-    fireEvent.click(getByText('LOG IN'));
-    //assert that the Area Container is rendered after the user signs-in:
-    expect(getByTestId('where-to')).toBeInTheDocument();
-  });
-
   it('Should change to the Areas Page once succesfully logged in', async () => {
     fetchedAreas.mockResolvedValueOnce(mockAreaResponse);
     fetchedAreaInfo.mockResolvedValueOnce(mockAreaInfoResponse);
@@ -87,7 +70,19 @@ describe('App', () => {
       </MemoryRouter>
     );
 
-    fireEvent.click(getByText('LOG IN'));
+    fireEvent.change(getByPlaceholderText('Username'), {
+      target: { value: 'user1' }
+    });
+
+    fireEvent.change(getByPlaceholderText('Email'), {
+      target: { value: 'user1@gmail.com'}
+    });
+
+    fireEvent.change(getByLabelText('account type'), {
+      target: { value: 'Other'}
+    });
+
+    fireEvent.click(getByLabelText('submit'));
 
     const rino = await waitFor(() => getByText('River North'));
 
@@ -99,16 +94,28 @@ describe('App', () => {
     fetchedAreaInfo.mockResolvedValueOnce(mockAreaInfoResponse);
     fetchedLocations.mockResolvedValueOnce(mockLocationResponse);
 
-    const { getByText, getByPlaceHolderText, getByLabelText } = render(
+    const { getByText, getByPlaceholderText, getByLabelText } = render(
       <MemoryRouter>
         <App />
       </MemoryRouter>
     );
 
-    fireEvent.click(getByText('LOG IN'));
+    fireEvent.change(getByPlaceholderText('Username'), {
+      target: { value: 'user1' }
+    });
+
+    fireEvent.change(getByPlaceholderText('Email'), {
+      target: { value: 'user1@gmail.com'}
+    });
+
+    fireEvent.change(getByLabelText('account type'), {
+      target: { value: 'Other'}
+    });
+    
+    fireEvent.click(getByLabelText('submit')); 
 
 
-    const allListingBtn = await waitFor(() => getByLabelText('listings'));
+    const allListingBtn = await waitFor(() => getByLabelText('Listings'));
 
     fireEvent.click(allListingBtn);
 
@@ -123,13 +130,26 @@ describe('App', () => {
     fetchedAreaInfo.mockResolvedValueOnce(mockAreaInfoResponse);
     fetchedLocations.mockResolvedValue(mockLocationResponse);
 
-    const { getByText, getByLabelText } = render(
+    const { getByText, getByLabelText, getByPlaceholderText } = render(
       <MemoryRouter>
         <App />
       </MemoryRouter>
     );
 
-    fireEvent.click(getByText('LOG IN'));
+    fireEvent.change(getByPlaceholderText('Username'), {
+      target: { value: 'user1' }
+    });
+
+    fireEvent.change(getByPlaceholderText('Email'), {
+      target: { value: 'user1@gmail.com'}
+    });
+
+    fireEvent.change(getByLabelText('account type'), {
+      target: { value: 'Other'}
+    });
+    
+    fireEvent.click(getByLabelText('submit')); 
+   
 
     const allListingBtn = await waitFor(() => getByLabelText('listings'));
 
@@ -149,22 +169,30 @@ describe('App', () => {
     expect(features).toBeInTheDocument;
   });
 
-  it.skip('Should change to Favorites Page', async () => {
+  it('Should change to Favorites Page', async () => {
     fetchedAreas.mockResolvedValue(mockAreaResponse);
     fetchedAreaInfo.mockResolvedValueOnce(mockAreaInfoResponse);
     fetchedLocations.mockResolvedValue(mockLocationResponse);
-
-    const { getByText, getByPlaceHolder, getByLabelText } = render(
+ 
+    const { getByText, getByPlaceholderText, getByLabelText } = render(
       <BrowserRouter>
         <App />
       </BrowserRouter>
     );
 
-<<<<<<< HEAD
+    fireEvent.change(getByPlaceholderText('Username'), {
+      target: { value: 'user1' }
+    });
 
-=======
->>>>>>> master
-    fireEvent.click(getByText('LOG IN'));
+    fireEvent.change(getByPlaceholderText('Email'), {
+      target: { value: 'user1@gmail.com'}
+    });
+
+    fireEvent.change(getByLabelText('account type'), {
+      target: { value: 'Other'}
+    });
+    
+    fireEvent.click(getByLabelText('submit')); 
     //LocationContainer - event happens on the listings btn
     const allListingBtn = await waitFor(() => getByLabelText('listings'));
 
