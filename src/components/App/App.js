@@ -26,7 +26,6 @@ class App extends Component {
   }
 
   componentDidMount() {
-    const url = 'https://vrad-api.herokuapp.com';
     fetchedAreas()
      .then(areaData => {
        const areaPromises = areaData.areas.map(area => {
@@ -111,7 +110,7 @@ class App extends Component {
                              renderSingleCard={false}
                              addFavorite={this.addFavorite}
                              favCount={this.state.favoriteLocations.length}
-                             />} 
+                             />}
 
                              />
         <Route exact path='/favorites' >

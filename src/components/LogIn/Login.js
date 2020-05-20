@@ -39,7 +39,7 @@ export default class Login extends Component {
           <input id='email' type='email' className='email' required placeholder='Email' onChange={(e) => this.handleUserInfo(e)}></input>
         </div>
         <div className='drop-down'>
-          <select required type='select' id='accountType' onChange={(e) => this.handleUserInfo(e)}>
+          <select required type='select' aria-label="account type" id='accountType' onChange={(e) => this.handleUserInfo(e)}>
             <option value=''>Account Type</option>
             <option value='business trip'>Business</option>
             <option value='vacation'>Vacation</option>

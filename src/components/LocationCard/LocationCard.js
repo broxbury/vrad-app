@@ -11,9 +11,9 @@ const LocationCard = (props) => {
     <div className='location-card'>
       <div className='location-name-address'>
         <h2>{listingInfo.name}</h2>
-        <h3>{listingInfo.address.street}</h3>
+        <h3>{listingInfo.address}</h3>
       </div>
-      <div className='location-card-btns'> 
+      <div className='location-card-btns'>
         <button onClick={() => addFavorite(listingInfo.id)} className='favorite-btn'>Favorite
         </button>
         <Link to={`/areas/${listingInfo.areaId}/listings/${listingInfo.id}`}
