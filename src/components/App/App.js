@@ -67,11 +67,11 @@ class App extends Component {
     })
   };
 
-  removeFavorite = (listingToRemove) => {
+  removeFavorite = async (listingToRemove) => {
     let currentState = [...this.state.favoriteLocations];
     let filteredArray = currentState.filter(listing => listing.id !== listingToRemove.id)
   
-    this.setState({ favoriteLocations: filteredArray})
+    await this.setState({ favoriteLocations: filteredArray})
    
   }
 
@@ -98,7 +98,7 @@ class App extends Component {
         : <Redirect to = '/areas'/>}
 
         <Route exact path='/areas' >
-          <Header logOut={this.logOut}/>
+          <Header logOut={this.logOut} favCount={this.state.favoriteLocations.length} />
           <AreaContainer fetchListings={this.fetchListings}
                          userInfo={this.state.userInfo}
                          areas={this.state.areas} />
@@ -111,11 +111,12 @@ class App extends Component {
                              logOut={this.logOut} 
                              renderSingleCard={false} 
                              addFavorite={this.addFavorite}
+                             favCount={this.state.favoriteLocations.length}
                              />} 
 
                              />
         <Route exact path='/favorites' >
-        <FavoritesContainer favoriteListings={this.state.favoriteLocations} addFavorite={this.addFavorite} logOut={this.logOut}/>
+        <FavoritesContainer favoriteListings={this.state.favoriteLocations} addFavorite={this.addFavorite} logOut={this.logOut} favCount={this.state.favoriteLocations.length}/>
         </Route>
         <Route path='/areas/:id/listings/:listing_id' render={({ match }) => 
 
@@ -126,6 +127,7 @@ class App extends Component {
                              logOut={this.logOut} 
                              renderSingleCard={true}
                              addFavorite={this.addFavorite}
+                             favCount={this.state.favoriteLocations.length}
                              />)}
                              }
 

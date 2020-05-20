@@ -1,7 +1,7 @@
 import React from 'react';
 import './ListingCard.css';
 
-const ListingCard = ({ listingInfo }) => {
+const ListingCard = ({ listingInfo, addFavorite }) => {
   console.log('listingInfo', listingInfo)
 
   const listingFeatures = listingInfo.details.features.map((feature, i) => {
@@ -28,7 +28,7 @@ const ListingCard = ({ listingInfo }) => {
               {listingFeatures}
             </ul>
           </div>
-          <button className='favorite-btn'>Favorite</button>
+          <button onClick={() => addFavorite(listingInfo.id)} className='favorite-btn'>Favorite</button>
         </div>
         <div className='listing-imgs'>
           <img src={`/images/${listingInfo.id}_a.jpg`} />

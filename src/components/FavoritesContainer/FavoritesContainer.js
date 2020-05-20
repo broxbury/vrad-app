@@ -13,11 +13,12 @@ class FavoritesContainer extends React.Component {
     }
   }
   
- findListing = () => {
-    return this.state.favoriteListings.find(listing => listing.id === parseInt(this.props.listingId));
+ findListing = (listingId) => {
+    return this.state.favoriteListings.find(listing => listing.id === parseInt(listingId));
   }
 
-  addFavorite = (listingToRemove) => {
+  addFavorite = (listingToRemoveId) => {
+    const listingToRemove = this.findListing(listingToRemoveId)
     this.props.addFavorite(listingToRemove)
   }
 
@@ -29,11 +30,11 @@ class FavoritesContainer extends React.Component {
 
     return (
       <>
-      <Header logOut={this.props.logOut}/>
+      <Header logOut={this.props.logOut} favCount={this.props.favCount}/>
       <div className='main-location-container'>
         <div className='location-container'>
           <div className='location-card-section'>
-          {this.props.favoriteListings && listingToDisplay ? 
+          {this.props.favoriteListings.length > 0 ? 
           ( listings )
           : ( <h2 className='no-favorites'>Please Add Favorites to Use This Feature!</h2> )
             }

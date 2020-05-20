@@ -67,7 +67,7 @@ class LocationContainer extends React.Component {
 
   render() {
     const background = this.backgroundImgFinder(this.props.areaId)
-    
+
     const listingsToDisplay = this.state.listings.map(listing => {
          return <LocationCard findListing={this.findListing} key={listing.id} listingInfo={listing} addFavorite={this.addFavorite}/>
     })
@@ -76,7 +76,7 @@ class LocationContainer extends React.Component {
 
     return (
       <>
-      <Header logOut={this.props.logOut}/>
+      <Header logOut={this.props.logOut} favCount={this.props.favCount}/>
       <div className='main-location-container'>
         <div className='location-container' style={{backgroundImage: `url(${background})`}}>
           <div className='location-card-section'>
