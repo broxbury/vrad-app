@@ -2,7 +2,7 @@ import React from 'react';
 import { render, fireEvent, waitFor } from '@testing-library/react';
 import App from './App';
 import { MemoryRouter, BrowserRouter } from 'react-router-dom';
-import { fetchedAreas, fetchedLocations } from '../../../apiCalls.js';
+// import { fetchedAreas, fetchedLocations } from '../../apiCalls';
 
 
 describe('App', () => {
@@ -64,7 +64,7 @@ describe('App', () => {
     expect(getByTestId('where-to')).toBeInTheDocument();
   });
 
-  it.skip('Should change to the Areas Page once succesfully logged in', () => {
+  it.skip('Should change to the Areas Page once succesfully logged in', async () => {
     fetchedArea.mockResolvedValue(mockAreaResponse);
 
     const { getByText, getByPlaceHolder, getByLableText } = render(
@@ -98,7 +98,7 @@ describe('App', () => {
     expect(capHill).toBeInTheDocument();
   });
 
-  it.skip('Should change to the desired Location Page', () => {
+  it.skip('Should change to the desired Location Page', async () => {
     fetchedArea.mockResolvedValue(mockAreaResponse);
     fetchedLocations.mockResolvedValue(mockLocationResponse);
 
@@ -136,7 +136,7 @@ describe('App', () => {
     expect(rinoListing3).toBeInTheDocument;
   });
 
-  it.skip('Should change to desired single Listing Page', () => {
+  it.skip('Should change to desired single Listing Page', async () => {
     fetchedArea.mockResolvedValue(mockAreaResponse);
     fetchedLocations.mockResolvedValue(mockLocationResponse);
 
@@ -178,7 +178,7 @@ describe('App', () => {
     expect(address).toBeInTheDocument;
   });
 
-  it.skip('Should change to Favorites Page', () => {
+  it.skip('Should change to Favorites Page', async () => {
     fetchedArea.mockResolvedValue(mockAreaResponse);
     fetchedLocations.mockResolvedValue(mockLocationResponse);
 

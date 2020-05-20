@@ -6,6 +6,7 @@ import Header from '../Header/Header.js';
 import AreaContainer from '../AreaContainer/AreaContainer.js';
 import LocationContainer from '../LocationContainer/LocationContainer.js'
 import LocationCard from '../LocationCard/LocationCard';
+import { fetchedAreas, fetchedAreaInfo } from '../../apiCalls';
 
 class App extends Component {
   constructor(props) {
@@ -24,13 +25,11 @@ class App extends Component {
   }
 
   componentDidMount() {
-    const url = 'https://vrad-api.herokuapp.com'
-    fetch(url + '/api/v1/areas')
-     .then(response => response.json())
+    const url = 'https://vrad-api.herokuapp.com';
+    fetchedAreas()
      .then(areaData => {
        const areaPromises = areaData.areas.map(area => {
-         return fetch(url + area.details)
-         .then(response => response.json())
+         return fetchedAreaInfo(area.details)
          .then(info => {
            return {
              nickname: area.area,

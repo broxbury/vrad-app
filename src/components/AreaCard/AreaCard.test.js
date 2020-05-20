@@ -11,7 +11,7 @@ describe('AreaCard', () => {
     mockArea = {
       'id': 590,
       'name': 'River North',
-      'nickName': 'RiNo',
+      'nickname': 'RiNo',
       'location': 'North of Downtown Denver',
       'about': 'RiNo is a burgeoning area with new bars, restaurants and event spaces popping up all the time. Explore this thriving area of Denver today!',
       'region_code': 6356834,
@@ -28,7 +28,7 @@ describe('AreaCard', () => {
   });
 
   it('Displays the chossen areas information', () => {
-    const { getByText } = render(
+    const { getByText, container } = render(
       <BrowserRouter>
         <AreaCard
           areaInfo={mockArea}
@@ -37,9 +37,9 @@ describe('AreaCard', () => {
     );
 
      expect(getByText('River North')).toBeInTheDocument();
-     expect(getByText('RiNo is a burgeoning area')).toBeInTheDocument();
+     expect(getByText('RiNo is a burgeoning area with new bars, restaurants and event spaces popping up all the time. Explore this thriving area of Denver today!')).toBeInTheDocument();
      expect(getByText('(RiNo)')).toBeInTheDocument();
-     expect(getByText('Listings')).toBeInTheDocument();
+     expect(getByText('LISTINGS')).toBeInTheDocument();
   });
-  
+
 })
