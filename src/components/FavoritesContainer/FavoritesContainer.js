@@ -12,7 +12,7 @@ class FavoritesContainer extends React.Component {
       favoriteListings: this.props.favoriteListings
     }
   }
-  
+
  findListing = (listingId) => {
     return this.state.favoriteListings.find(listing => listing.id === parseInt(listingId));
   }
@@ -34,7 +34,7 @@ class FavoritesContainer extends React.Component {
       <div className='main-location-container'>
         <div className='location-container'>
           <div className='location-card-section'>
-          {this.props.favoriteListings.length > 0 ? 
+          {this.props.favoriteListings.length > 0 ?
           ( listings )
           : ( <h2 className='no-favorites'>Please Add Favorites to Use This Feature!</h2> )
             }

@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 const LocationCard = (props) => {
   const { listingInfo, addFavorite } = props;
   const locationImg = `/images/${listingInfo.id}_a.jpg`;
-
+  
   return(
     <div className='location-card'>
       <div className='location-name-address'>

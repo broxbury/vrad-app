@@ -10,10 +10,10 @@ describe('App', () => {
   let mockLocationResponse;
   let mockAreaInfoResponse;
 
- 
+
 
   beforeEach(() => {
-  
+
     mockAreaResponse = {
       areas: [
         {
@@ -22,7 +22,7 @@ describe('App', () => {
        }
       ]
     }
- 
+
     mockAreaInfoResponse = {
       "id": 590,
           "name": "River North",
@@ -31,11 +31,11 @@ describe('App', () => {
           "region_code": 6356834,
           "quick_search": "o5kod9f5cqo0",
           "listings": [
-              "/api/v1/listings/3" 
+              "/api/v1/listings/3"
           ]
     }
 
-    mockLocationResponse = 
+    mockLocationResponse =
       {
         listing_id: 3,
         area_id: 590,
@@ -58,7 +58,7 @@ describe('App', () => {
         db_connect: 834470
       }
     })
- 
+
 
   it('When the App loads, we should see the login Page', () => {
     fetchedAreas.mockResolvedValueOnce(mockAreaResponse);
@@ -87,18 +87,6 @@ describe('App', () => {
       </MemoryRouter>
     );
 
-    // await waitFor(() => { 
-    //   fireEvent.change(getByPlaceholderText('Username'), {
-    //     target: {value: 'Mock User'}
-    //   });
-    //   fireEvent.change(getByPlaceholderText('Email'), {
-    //     target: {value: 'MockEmail@msn.com'}
-    //   });
-    //   fireEvent.change(getByLabelText('account type'), {
-    //     target: {value: 'vacation'}
-    //   });
-    // });
-
     fireEvent.click(getByText('LOG IN'));
 
     const rino = await waitFor(() => getByText('River North'));
@@ -116,26 +104,13 @@ describe('App', () => {
         <App />
       </MemoryRouter>
     );
-  
-    // await waitFor(() => {
-    //   fireEvent.change(getByPlaceholderText('Username'), {
-    //     target: {value: 'Mock User'}
-    //   });
-    //   fireEvent.change(getByPlaceholderText('Email'), {
-    //     target: {value: 'MockEmial@msn.com'}
-    //   });
-    //   fireEvent.change(getByLableText('Account Type'), {
-    //     target: {value: 'vacation'}
-    //   });
-    // });
-
 
     fireEvent.click(getByText('LOG IN'));
 
-    
+
     const allListingBtn = await waitFor(() => getByLabelText('listings'));
 
-    fireEvent.click(allListingBtn); 
+    fireEvent.click(allListingBtn);
 
     const rinoListing = await waitFor(() => getByText('Hip RiNo Party Spot'));
 
@@ -154,39 +129,27 @@ describe('App', () => {
       </MemoryRouter>
     );
 
-    // await waitFor(() => {
-    //   fireEvent.change(getByPlaceholderText('Username'), {
-    //     target: {value: 'Mock User'}
-    //   });
-    //   fireEvent.change(getByPlaceholderText('Email'), {
-    //     target: {value: 'MockEmial@msn.com'}
-    //   });
-    //   fireEvent.change(getByLableText('Account Type'), {
-    //     target: {value: 'vacation'}
-    //   });
-    // }); fireEvent.click(getByText('LOG IN'));
-
     fireEvent.click(getByText('LOG IN'));
 
     const allListingBtn = await waitFor(() => getByLabelText('listings'));
 
-    fireEvent.click(allListingBtn); 
+    fireEvent.click(allListingBtn);
+
 
     const seeListingBtn = await waitFor(() => getByLabelText('listing'))
 
     fireEvent.click(seeListingBtn);
 
     const features = await waitFor(() => getByText('hot tub'))
-    // const features = await waitFor(() => getByText('Hot Tub'))
-    // // const details = await waitFor(() => getByText('Cost Per Night: $420'))
-    // // const address = await waitFor(() => getByText('rino/ 2250 Lawrence St, 80205'));
- 
+    const details = await waitFor(() => getByText('Cost Per Night: $420'))
+    const address = await waitFor(() => getByText('rino/ 2250 Lawrence St, 80205'));
+
     expect(features).toBeInTheDocument;
-    // // expect(details).toBeInTheDocument;
-    // expect(features).toBeInTheDocument;
+    expect(details).toBeInTheDocument;
+    expect(features).toBeInTheDocument;
   });
 
-  it('Should change to Favorites Page', async () => {
+  it.skip('Should change to Favorites Page', async () => {
     fetchedAreas.mockResolvedValue(mockAreaResponse);
     fetchedAreaInfo.mockResolvedValueOnce(mockAreaInfoResponse);
     fetchedLocations.mockResolvedValue(mockLocationResponse);
@@ -197,7 +160,10 @@ describe('App', () => {
       </BrowserRouter>
     );
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> master
     fireEvent.click(getByText('LOG IN'));
     //LocationContainer - event happens on the listings btn
     const allListingBtn = await waitFor(() => getByLabelText('listings'));
