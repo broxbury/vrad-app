@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 const LocationCard = (props) => {
   const { listingInfo, addFavorite } = props;
   const locationImg = `/images/${listingInfo.id}_a.jpg`;
-  console.log(props)
+
   return(
     <div className='location-card'>
       <div className='location-name-address'>
@@ -15,7 +15,7 @@ const LocationCard = (props) => {
         <h3>{listingInfo.address.zip}</h3>
       </div>
       <div className='location-card-btns'>
-        <button onClick={() => addFavorite(listingInfo.id)} className='favorite-btn'>Favorite
+        <button aria-label='favorite' onClick={() => addFavorite(listingInfo.id)} className='favorite-btn'>Favorite
         </button>
         <Link to={`/areas/${listingInfo.areaId}/listings/${listingInfo.id}`}
               onClick={() => props.findListing(listingInfo.id)}
