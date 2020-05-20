@@ -74,19 +74,19 @@ describe('App', () => {
       </MemoryRouter>
     );
 
-    // await waitFor(() => {
-    //   fireEvent.change(getByPlaceholderText('Username'), {
-    //     target: {value: 'Mock User'}
-    //   });
-    //   fireEvent.change(getByPlaceholderText('Email'), {
-    //     target: {value: 'MockEmail@msn.com'}
-    //   });
-    //   fireEvent.change(getByLableText('Account Type'), {
-    //     target: {value: 'vacation'}
-    //   });
-    // });
+    await waitFor(() => {
+      fireEvent.change(getByPlaceholderText('Username'), {
+        target: {value: 'Mock User'}
+      });
+      fireEvent.change(getByPlaceholderText('Email'), {
+        target: {value: 'MockEmail@msn.com'}
+      });
+      fireEvent.change(getByLableText('Account Type'), {
+        target: {value: 'vacation'}
+      });
+    });
 
-    // fireEvent.click(getByText('LOG IN'));
+    fireEvent.click(getByText('LOG IN'));
 
     const rino = await waitFor(() => getByText('River North'));
     const parkHill = await waitFor(() => getByText('Park Hill'));
@@ -109,17 +109,17 @@ describe('App', () => {
       </BrowserRouter>
     );
 
-    // await waitFor(() => {
-    //   fireEvent.change(getByPlaceholderText('Username'), {
-    //     target: {value: 'Mock User'}
-    //   });
-    //   fireEvent.change(getByPlaceholderText('Email'), {
-    //     target: {value: 'MockEmial@msn.com'}
-    //   });
-    //   fireEvent.change(getByLableText('Account Type'), {
-    //     target: {value: 'vacation'}
-    //   });
-    // });
+    await waitFor(() => {
+      fireEvent.change(getByPlaceholderText('Username'), {
+        target: {value: 'Mock User'}
+      });
+      fireEvent.change(getByPlaceholderText('Email'), {
+        target: {value: 'MockEmial@msn.com'}
+      });
+      fireEvent.change(getByLableText('Account Type'), {
+        target: {value: 'vacation'}
+      });
+    });
 
     fireEvent.click(getByText('Log In'));
 
