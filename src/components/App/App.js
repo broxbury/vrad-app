@@ -7,6 +7,7 @@ import AreaContainer from '../AreaContainer/AreaContainer.js';
 import LocationContainer from '../LocationContainer/LocationContainer.js'
 import LocationCard from '../LocationCard/LocationCard';
 import FavoritesContainer from '../FavoritesContainer/FavoritesContainer.js'
+import { fetchedAreas, fetchedAreaInfo } from '../../apiCalls';
 
 class App extends Component {
   constructor(props) {
@@ -17,7 +18,7 @@ class App extends Component {
         email: '',
         accountType: ''
       },
-      isLoggedIn: true,
+      isLoggedIn: false,
       areas: [],
       favoriteLocations: []
 
@@ -25,13 +26,11 @@ class App extends Component {
   }
 
   componentDidMount() {
-    const url = 'https://vrad-api.herokuapp.com'
-    fetch(url + '/api/v1/areas')
-     .then(response => response.json())
+    const url = 'https://vrad-api.herokuapp.com';
+    fetchedAreas()
      .then(areaData => {
        const areaPromises = areaData.areas.map(area => {
-         return fetch(url + area.details)
-         .then(response => response.json())
+         return fetchedAreaInfo(area.details)
          .then(info => {
            return {
              nickname: area.area,
@@ -70,9 +69,9 @@ class App extends Component {
   removeFavorite = async (listingToRemove) => {
     let currentState = [...this.state.favoriteLocations];
     let filteredArray = currentState.filter(listing => listing.id !== listingToRemove.id)
-  
-    await this.setState({ favoriteLocations: filteredArray})
-   
+
+    this.setState({ favoriteLocations: filteredArray})
+
   }
 
   addFavorite = async (listingToAdd) => {
@@ -106,10 +105,10 @@ class App extends Component {
 
         <Route exact path='/areas/:id/listings' render={({ match }) =>
           <LocationContainer
-                             areaId={(parseInt(match.params.id))} 
-                             areas={this.state.areas} 
-                             logOut={this.logOut} 
-                             renderSingleCard={false} 
+                             areaId={(parseInt(match.params.id))}
+                             areas={this.state.areas}
+                             logOut={this.logOut}
+                             renderSingleCard={false}
                              addFavorite={this.addFavorite}
                              favCount={this.state.favoriteLocations.length}
                              />} 
@@ -118,19 +117,18 @@ class App extends Component {
         <Route exact path='/favorites' >
         <FavoritesContainer favoriteListings={this.state.favoriteLocations} addFavorite={this.addFavorite} logOut={this.logOut} favCount={this.state.favoriteLocations.length}/>
         </Route>
-        <Route path='/areas/:id/listings/:listing_id' render={({ match }) => 
+        <Route path='/areas/:id/listings/:listing_id' render={({ match }) =>
 
-         { 
+         {
          return (<LocationContainer areaId={(parseInt(match.params.id))}
                              listingId={match.params.listing_id}
-                             areas={this.state.areas} 
-                             logOut={this.logOut} 
+                             areas={this.state.areas}
+                             logOut={this.logOut}
                              renderSingleCard={true}
                              addFavorite={this.addFavorite}
                              favCount={this.state.favoriteLocations.length}
                              />)}
                              }
-
                              />
         <Route exact path='/' >
           <Login setLoginInfo={this.setLoginInfo} />
