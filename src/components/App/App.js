@@ -6,6 +6,7 @@ import Header from '../Header/Header.js';
 import AreaContainer from '../AreaContainer/AreaContainer.js';
 import LocationContainer from '../LocationContainer/LocationContainer.js'
 import LocationCard from '../LocationCard/LocationCard';
+import FavoritesContainer from '../FavoritesContainer/FavoritesContainer.js'
 import { fetchedAreas, fetchedAreaInfo } from '../../apiCalls';
 
 class App extends Component {
@@ -65,7 +66,7 @@ class App extends Component {
     })
   };
 
-  removeFavorite = (listingToRemove) => {
+  removeFavorite = async (listingToRemove) => {
     let currentState = [...this.state.favoriteLocations];
     let filteredArray = currentState.filter(listing => listing.id !== listingToRemove.id)
 
@@ -96,7 +97,7 @@ class App extends Component {
         : <Redirect to = '/areas'/>}
 
         <Route exact path='/areas' >
-          <Header logOut={this.logOut}/>
+          <Header logOut={this.logOut} favCount={this.state.favoriteLocations.length} />
           <AreaContainer fetchListings={this.fetchListings}
                          userInfo={this.state.userInfo}
                          areas={this.state.areas} />
@@ -109,17 +110,12 @@ class App extends Component {
                              logOut={this.logOut}
                              renderSingleCard={false}
                              addFavorite={this.addFavorite}
-                             />}
+                             favCount={this.state.favoriteLocations.length}
+                             />} 
 
                              />
         <Route exact path='/favorites' >
-        <LocationContainer
-                             favoriteListings={this.state.favoriteListings}
-                             areas={this.state.areas}
-                             logOut={this.logOut}
-                             renderSingleCard={false}
-                             addFavorite={this.addFavorite}
-                             />
+        <FavoritesContainer favoriteListings={this.state.favoriteLocations} addFavorite={this.addFavorite} logOut={this.logOut} favCount={this.state.favoriteLocations.length}/>
         </Route>
         <Route path='/areas/:id/listings/:listing_id' render={({ match }) =>
 
@@ -130,9 +126,9 @@ class App extends Component {
                              logOut={this.logOut}
                              renderSingleCard={true}
                              addFavorite={this.addFavorite}
+                             favCount={this.state.favoriteLocations.length}
                              />)}
                              }
-
                              />
         <Route exact path='/' >
           <Login setLoginInfo={this.setLoginInfo} />

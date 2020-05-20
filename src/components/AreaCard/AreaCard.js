@@ -30,7 +30,7 @@ const AreaCard = ({ areaInfo, fetchListings }) => {
       <p>({areaInfo.nickname})</p>
       <p>{areaInfo.about}</p>
       <Link to={`/areas/${areaInfo.id}/listings`}>
-        <button id={areaInfo.id}>LISTINGS</button>
+        <button className='listing-btn' id={areaInfo.id}>LISTINGS</button>
       </Link>
     </div>
   )

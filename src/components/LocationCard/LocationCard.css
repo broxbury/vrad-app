@@ -23,3 +23,22 @@
   background-size: cover;
   background-position: 0% 45%;
 }
+
+
+.see-listing-btn {
+  cursor: pointer;
+  border-radius: 10px;
+  width: 120px;
+  height: 45px;
+  background-color: rgba(2, 111, 183, 0.87);
+  outline: none;
+  color: #ffffff;
+  margin: 0px 20px 0px 0px;
+  text-transform: uppercase;
+  font-size: 15px;
+}
+
+.see-listing-btn:hover {
+  background-color: rgba(254, 184, 96, 0.87);
+  color: #000000;
+}

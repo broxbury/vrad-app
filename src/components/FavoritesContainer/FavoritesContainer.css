@@ -1,0 +1,31 @@
+.main-location-container {
+  position: relative;
+}
+
+.location-container {
+  background-image: url('./denver-skyline.jpeg');
+  background-size: cover;
+  background-position: 0% 45%;
+  opacity: 85%;
+  height: 65vh;
+  margin-top: 75px;
+}
+
+.location-card-section {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  position: absolute;
+  top: 45%;
+  width: 100vw;
+}
+
+.no-favorites {
+  color: white;
+  font-size: 3em;
+  font-weight: bold;
+  font-family: sans-serif;
+  -webkit-text-stroke-width: 2px;
+  -webkit-text-stroke-color: black;
+
+}

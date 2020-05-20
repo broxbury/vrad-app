@@ -76,7 +76,7 @@ class LocationContainer extends React.Component {
 
     return (
       <>
-      <Header logOut={this.props.logOut}/>
+      <Header logOut={this.props.logOut} favCount={this.props.favCount}/>
       <div className='main-location-container'>
         <div className='location-container' style={{backgroundImage: `url(${background})`}}>
           <div className='location-card-section'>

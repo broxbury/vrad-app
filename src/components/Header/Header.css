@@ -22,7 +22,12 @@ header {
   align-items: center;
 }
 
+
 .header-btns {
+  display: flex;
+  justify-content: center;
+  text-decoration: none;
+  cursor: pointer;
   border-radius: 10px;
   width: 120px;
   height: 45px;
@@ -35,6 +40,27 @@ header {
 }
 
 .header-btns:hover {
+  text-decoration: none;
   background-color: rgba(254, 184, 96, 0.87);
   color: #000000;
+}
+
+.header-btns-active {
+  display: flex;
+  justify-content: center;
+  text-decoration: none;
+  border-radius: 10px;
+  width: 120px;
+  height: 45px;
+  background-color:  rgba(254, 184, 96, 0.87);
+  outline: none;
+  color: #080808;
+  margin: 0px 20px 0px 0px;
+  text-transform: uppercase;
+  font-size: 15px;
+  
+}
+
+h3 {
+font-size: 1em;
 }

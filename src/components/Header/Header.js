@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './Header.css';
-import { Link, NavLink } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 export default class Header extends Component {
   constructor(props) {
@@ -11,16 +11,17 @@ export default class Header extends Component {
   }
 
   render() {
+    const favoriteCount = this.props.favCount
     return(
       <header>
         <div className='logo-left-btns'>
           <h1 className='logo'>vrad</h1>
-          <NavLink to='/favorites'>
-          <button className='header-btns' id='favorites'>favorites</button>
+          <NavLink to='/favorites' exact className='header-btns' activeClassName='header-btns-active'>
+          <h3>{`favorites-${favoriteCount}`}</h3>
           </NavLink>
-          <Link to={`/areas/`}>
-            <button className='header-btns' id='areas'>areas</button>
-          </Link>
+          <NavLink to={`/areas`} exact className='header-btns' activeClassName='header-btns-active'>
+            <h3>areas</h3>
+          </NavLink>
         </div>
         <div className='right-btn'>
           <button
