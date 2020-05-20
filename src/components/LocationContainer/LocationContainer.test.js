@@ -2,7 +2,7 @@ import React from 'react';
 import { render, fireEvent, waitFor } from '@testing-library/react';
 import LocationContainer from './LocationContainer';
 import { BrowserRouter } from 'react-router-dom';
-// import { fetchedLocations } from '../../apiCalls';
+import { fetchedLocations } from '../../apiCalls';
 
 describe('LocationContainer', () => {
   let mockLocationResponse;
