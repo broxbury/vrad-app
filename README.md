@@ -48,7 +48,9 @@ This project was challenging for us on a few different levels. This was our firs
 ## More App Navigation Movement 
 ![vrad-app-gif](https://media.giphy.com/media/JQosPpAYohpKGxGWOu/giphy.gif)
 
+## Adding Favorite Listings
 ![vrad-app-gif](https://media.giphy.com/media/RhkQNQQAzgaZ9wkrR8/giphy.gif)
 
+## Logging Out
 ![vrad-app-gif](https://media.giphy.com/media/TGiPCTRtsLKLBo2Zi2/giphy.gif)
 
