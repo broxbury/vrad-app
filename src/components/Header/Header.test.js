@@ -6,7 +6,9 @@ import { MemoryRouter } from 'react-router-dom';
 
 describe('Header', () => {
   it('Should render a logo and a favorites, areas and log out button', () => {
+
     const { getByText, getByLabelText } = render(
+
       <MemoryRouter>
         <Header />
       </MemoryRouter>
@@ -18,8 +20,11 @@ describe('Header', () => {
     const logoBtn = getByText('log out');
 
     expect(logo).toBeInTheDocument;
+
     expect(favoritesBtn).toBeInTheDocument;
+
     expect(areasBtn).toBeInTheDocument;
+    
     expect(logoBtn).toBeInTheDocument;
   });
 
@@ -33,10 +38,6 @@ describe('Header', () => {
 
     fireEvent.click(getByPlaceholderText('log-out'));
     expect(mockLogOut).toHaveBeenCalled()
-  });
-
-  it.skip('Should should be able to show the areas or favorites pages', () => {
-
   });
 
 });

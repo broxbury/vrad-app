@@ -1,7 +1,4 @@
 import React, { Component } from 'react';
-import { Route, Link } from 'react-router-dom';
-import background from './background-login.jpeg'
-import './Login.css'
 
 export default class Login extends Component {
   constructor(props){
@@ -23,7 +20,9 @@ export default class Login extends Component {
 
   handleLogIn = (e) => {
     e.preventDefault();
-    this.props.setLoginInfo(this.state)
+    if (this.state.username && this.state.email && this.accontType !== 'Account Type') {
+      this.props.setLoginInfo(this.state)
+    }
   }
 
   render() {
@@ -46,7 +45,7 @@ export default class Login extends Component {
                 <option value='trip'>Other</option>
               </select>
             </div>
-              <button placeholer='log-ing-btn' className='login-btn'>LOG IN</button>
+              <button aria-label='submit' placeholer='log-ing-btn' className='login-btn'>LOG IN</button>
           </div>
         </form>
       </div>
