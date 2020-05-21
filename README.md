@@ -14,17 +14,38 @@ Clone down this repo
 (Your browser should open for you to see and interact with the application);
 
 ## UI
+
+### Loging In
+
+![vrad-app-gif](https://media.giphy.com/media/KfHPkmzVf0704f2Cnx/giphy.gif)
+
 When a user arrives at the Login page, they are greeted with a sign-in form. A username, email, and reason for visit are all required fields. 
 
 Once the user signs in, they are greeted with options to explore each listed neighborhood. They are also shown a brief description of each area. 
 
+### Selecting An Area And Single Listing
+
+![vrad-app-gif](https://media.giphy.com/media/jO1xyAyx5sjoVaO4fC/giphy.gif)
+
 When the user selects a neighborhood, they are taken to a page that will display all of the available listings for that area. 
 
+## More App Navigation Movement 
+
+![vrad-app-gif](https://media.giphy.com/media/JQosPpAYohpKGxGWOu/giphy.gif)
+
 If one particular listing looks appealing, they can click on the "See Listing" button to see more detailed information and pictures for that listing. 
+
+## Adding Favorite Listings
+
+![vrad-app-gif](https://media.giphy.com/media/RhkQNQQAzgaZ9wkrR8/giphy.gif)
 
 While navigating listings, a user may also "Favorite" a listing, which will save that listing for later. 
 
 If a user wishes to see their "Favorited" listings, they can do so by clicking the "Favorites" button in the top left corner of the application.
+
+## Logging Out
+
+![vrad-app-gif](https://media.giphy.com/media/TGiPCTRtsLKLBo2Zi2/giphy.gif)
 
 Finally, when a user is finished navigating the site, they can sign-out from any page. 
 
@@ -37,20 +58,11 @@ We also implemented Unit and/or Integration tests for all of our components, so 
 ## Challenges 
 This project was challenging for us on a few different levels. This was our first project using Browser Router, and while challenging at first, we were able to successfully implement the tool into our project. Another 'road-block' was writing asynchronous network requests, and then subsequently testing those succesfully by mocking out the requests. 
 
-## Project In Action:
 
-## Logging In 
-![vrad-app-gif](https://media.giphy.com/media/KfHPkmzVf0704f2Cnx/giphy.gif)
 
-## Selecting An Area And Single Listing
-![vrad-app-gif](https://media.giphy.com/media/jO1xyAyx5sjoVaO4fC/giphy.gif)
 
-## More App Navigation Movement 
-![vrad-app-gif](https://media.giphy.com/media/JQosPpAYohpKGxGWOu/giphy.gif)
 
-## Adding Favorite Listings
-![vrad-app-gif](https://media.giphy.com/media/RhkQNQQAzgaZ9wkrR8/giphy.gif)
 
-## Logging Out
-![vrad-app-gif](https://media.giphy.com/media/TGiPCTRtsLKLBo2Zi2/giphy.gif)
+
+
 
