@@ -1,7 +1,7 @@
 .login-container {
-  height: 100vh;
   background-image: url('./background-login.jpeg');
   background-size: cover;
+  height: 100vh;
 }
 
 .logo-form-container {
@@ -14,22 +14,25 @@
 }
 
 .login-logo {
+  bottom: 13%;
+  font-family: 'Roboto Slab', serif;
   font-size: 90px;
-  writing-mode: vertical-rl;
-  text-orientation: upright;
-  text-transform: uppercase;
+  font-weight: bold;
+  left: 5%;
   margin: 0px;
   position: relative;
-  bottom: 10%;
-  left: 5%;
-  font-weight: bold;
-  font-family: 'Roboto Slab', serif;
+  text-orientation: upright;
+  text-transform: uppercase;
+  writing-mode: vertical-rl;
 }
 
 .login-form {
   background: rgba(255, 252, 252, 0.95);
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   border-radius: 9px;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  display: flex;
+  height: 50% ;
+  justify-content: space-around;
   left: 50%;
   padding: 60px 32px;
   position: absolute;
@@ -37,21 +40,18 @@
   top: 50%;
   transform: translate(-50%, -50%);
   width: 45%;
-  height: 50% ;
   z-index: 999;
-  display: flex;
-  justify-content: space-around;
 }
 
 .field, .drop-down-field, .login-btn {
-  height: 45px;
-  width: 310px;
-  position: relative;
-  top: 2%;
-  left: 10%;
-  margin: 6% 0;
   border: none;
   font-family: 'Roboto Slab', serif;
+  height: 45px;
+  left: 10%;
+  margin: 6% 0;
+  position: relative;
+  top: 2%;
+  width: 310px;
 }
 
 .field {
@@ -81,6 +81,6 @@
 .login-btn {
   background: rgba(2, 111, 183, 0.87);
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-  font-size: 25px;
   color: #ffffff;
+  font-size: 25px;
 }

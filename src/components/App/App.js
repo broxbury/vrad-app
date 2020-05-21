@@ -18,7 +18,7 @@ class App extends Component {
         email: '',
         accountType: ''
       },
-      isLoggedIn: true,
+      isLoggedIn: false,
       areas: [],
       favoriteLocations: []
 
