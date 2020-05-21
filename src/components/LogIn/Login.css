@@ -8,6 +8,11 @@
   display: flex;
 }
 
+.form-container {
+  position: relative;
+  top: 10%;
+}
+
 .login-logo {
   font-size: 90px;
   writing-mode: vertical-rl;
@@ -18,6 +23,7 @@
   bottom: 10%;
   left: 5%;
   font-weight: bold;
+  font-family: 'Roboto Slab', serif;
 }
 
 .login-form {
@@ -45,6 +51,7 @@
   left: 10%;
   margin: 6% 0;
   border: none;
+  font-family: 'Roboto Slab', serif;
 }
 
 .field {

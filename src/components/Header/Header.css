@@ -7,6 +7,8 @@ header {
   top: 0;
   width: 100vw;
   z-index: 100;
+  font-family: 'Roboto Mono', monospace;
+  font-weight: bold;
 }
 
 .logo {
@@ -37,6 +39,7 @@ header {
   margin: 0px 20px 0px 0px;
   text-transform: uppercase;
   font-size: 15px;
+  font-family: 'Roboto Mono', monospace;
 }
 
 .header-btns:hover {
