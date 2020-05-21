@@ -6,9 +6,9 @@ This application was built with `create-react-app`. It's a simple vaction rental
 In your terminal: 
 Clone down this repo
 
-Run npm install
+`Run npm install`
 
-Run npm start
+`Run npm start`
 
 (Your browser should open for you to see and interact with the application);
 
