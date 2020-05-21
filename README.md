@@ -1,4 +1,4 @@
-# VRAD! - Vacation Rentals Around Denver-
+# VRAD! -Vacation Rentals Around Denver-
 
 This application was built with `create-react-app`. It's a simple vaction rental application that allows users to browse vacation listings by neighborhood in Denver! Users can get to know different areas around the city to find their perfect rental!
 
