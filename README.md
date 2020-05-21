@@ -15,7 +15,7 @@ Clone down this repo
 
 ## UI
 
-### Loging In
+### Log In
 
 ![vrad-app-gif](https://media.giphy.com/media/KfHPkmzVf0704f2Cnx/giphy.gif)
 
