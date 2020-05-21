@@ -5,8 +5,12 @@ This application was built with `create-react-app`. It's a simple vaction rental
 ### Set Up
 In your terminal: 
 Clone down this repo
+
 Run npm install
-Run npm start (Your browser should open for you to see and interact with the application);
+
+Run npm start
+
+(Your browser should open for you to see and interact with the application);
 
 ## UI
 When a user arrives at the Login page, they are greeted with a sign-in form. A username, email, and reason for visit are all required fields. 
