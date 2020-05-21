@@ -3,11 +3,11 @@
 }
 
 .location-container {
-  background-size: cover;
   background-position: 0% 45%;
-  opacity: 85%;
+  background-size: cover;
   height: 50vh;
   margin-top: 75px;
+  opacity: 85%;
 }
 
 .location-card-section {

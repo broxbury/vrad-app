@@ -1,67 +1,66 @@
 header {
   background-color: #ffffff;
   display: flex;
-  justify-content: space-between;
+  font-family: 'Roboto Mono', monospace;
+  font-weight: bold;
   height: 75px;
+  justify-content: space-between;
   position: fixed;
   top: 0;
   width: 100vw;
   z-index: 100;
-  font-family: 'Roboto Mono', monospace;
-  font-weight: bold;
 }
 
 .logo {
   display: block;
   font-size: 45px;
-  text-transform: uppercase;
   padding: 0 10px;
+  text-transform: uppercase;
 }
 
 .logo-left-btns, .right-btn {
+  align-items: center;
   display: flex;
   justify-content: flex-start;
-  align-items: center;
 }
 
 
 .header-btns {
-  display: flex;
-  justify-content: center;
-  text-decoration: none;
-  cursor: pointer;
-  border-radius: 10px;
-  width: 120px;
-  height: 45px;
   background-color: rgba(2, 111, 183, 0.87);
-  outline: none;
+  border-radius: 10px;
   color: #ffffff;
-  margin: 0px 20px 0px 0px;
-  text-transform: uppercase;
-  font-size: 15px;
+  cursor: pointer;
+  display: flex;
   font-family: 'Roboto Mono', monospace;
+  font-size: 15px;
+  height: 45px;
+  justify-content: center;
+  margin: 0px 20px 0px 0px;
+  outline: none;
+  text-decoration: none;
+  text-transform: uppercase;
+  width: 120px;
 }
 
 .header-btns:hover {
-  text-decoration: none;
   background-color: rgba(254, 184, 96, 0.87);
   color: #000000;
+  text-decoration: none;
 }
 
 .header-btns-active {
-  display: flex;
-  justify-content: center;
-  text-decoration: none;
-  border-radius: 10px;
-  width: 120px;
-  height: 45px;
   background-color:  rgba(254, 184, 96, 0.87);
-  outline: none;
+  border-radius: 10px;
   color: #080808;
-  margin: 0px 20px 0px 0px;
-  text-transform: uppercase;
+  display: flex;
   font-size: 15px;
-
+  height: 45px;
+  justify-content: center;
+  margin: 0px 20px 0px 0px;
+  outline: none;
+  text-decoration: none;
+  text-transform: uppercase;
+  width: 120px;
 }
 
 h3 {
