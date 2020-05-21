@@ -45,6 +45,7 @@ This project was challenging for us on a few different levels. This was our firs
 ## Selecting An Area And Single Listing
 ![vrad-app-gif](https://media.giphy.com/media/jO1xyAyx5sjoVaO4fC/giphy.gif)
 
+## More App Navigation Movement 
 ![vrad-app-gif](https://media.giphy.com/media/JQosPpAYohpKGxGWOu/giphy.gif)
 
 ![vrad-app-gif](https://media.giphy.com/media/RhkQNQQAzgaZ9wkrR8/giphy.gif)
