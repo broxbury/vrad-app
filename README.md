@@ -4,6 +4,7 @@ This application was built with `create-react-app`. It's a simple vaction rental
 
 ### Set Up
 In your terminal: 
+
 Clone down this repo
 
 `Run npm install`
