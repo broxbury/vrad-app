@@ -180,6 +180,7 @@ describe('App', () => {
       </BrowserRouter>
     );
 
+
     fireEvent.change(getByPlaceholderText('Username'), {
       target: { value: 'user1' }
     });
@@ -193,10 +194,11 @@ describe('App', () => {
     });
     
     fireEvent.click(getByLabelText('submit')); 
+
     //LocationContainer - event happens on the listings btn
     const allListingBtn = await waitFor(() => getByLabelText('listings'));
 
-    fireEvent.click(allListingBtn); 
+    fireEvent.click(allListingBtn);
 
     //click on individual listing
     const seeListingBtn = await waitFor(() => getByLabelText('listing'))

@@ -1,18 +1,16 @@
 import React from 'react';
-
 import './LocationCard.css';
 import { Link } from 'react-router-dom';
 
 const LocationCard = (props) => {
   const { listingInfo, addFavorite } = props;
   const locationImg = `/images/${listingInfo.id}_a.jpg`;
-  
+
   return(
     <div className='location-card'>
       <div className='location-name-address'>
         <h2>{listingInfo.name}</h2>
         <h3>{listingInfo.address.street}</h3>
-        <h3>{listingInfo.address.zip}</h3>
       </div>
       <div className='location-card-btns'>
         <button aria-label='favorite' onClick={() => addFavorite(listingInfo.id)} className='favorite-btn'>Favorite

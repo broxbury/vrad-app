@@ -21,11 +21,15 @@
 }
 
 .no-favorites {
-  color: white;
+  align-items: center;
+  color: #000000;
+  background: rgba(255, 255, 255, 0.95);
   font-size: 3em;
   font-weight: bold;
+  border-radius: 5px;
+  width: 70%;
+  height: 110px;
   font-family: sans-serif;
-  -webkit-text-stroke-width: 2px;
-  -webkit-text-stroke-color: black;
-
+  display: flex;
+  padding-left: 25px;
 }
