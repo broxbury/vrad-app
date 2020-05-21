@@ -1,4 +1,4 @@
-# VRAD! - acation Rentals Around Denver-
+# VRAD! - Vacation Rentals Around Denver-
 
 This application was built with `create-react-app`. It's a simple vaction rental application that allows users to browse listings by neighborhood in Denver! Users can get to know different areas around the city to find their perfect rental!
 
@@ -21,11 +21,14 @@ While navigating listings, a user may also "Favorite" a listing, which will save
 
 If a user wishes to see their "Favorited" listings, they can do so by clicking the "Favorites" button in the top left corner of the application.
 
-Finally, when a user is finsihed navigating the site, they can sign-out from any page. 
+Finally, when a user is finished navigating the site, they can sign-out from any page. 
 
 
 ## Additional Info
-This project was created using a mixture of class-based and functional Components in React. Browser Router was used for routing/navigation, and all data is being retrieved using asyncronous fetch calls within out Components. 
+This project was created using a mixture of class-based and functional Components in React. Browser Router was used for routing/navigation, and all data is being retrieved using asynchronous fetch calls within our Components. 
 
 We also implemented Unit and/or Integration tests for all of our components, so feel free to dive into our testing suite to feel your way around the codebase!
+
+## Challenges 
+
 
