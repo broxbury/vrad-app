@@ -30,5 +30,5 @@ This project was created using a mixture of class-based and functional Component
 We also implemented Unit and/or Integration tests for all of our components, so feel free to dive into our testing suite to feel your way around the codebase!
 
 ## Challenges 
-
+This project was challenging for us on a few different levels. This was our first project using Browser Router, and while challenging at first, we were able to successfully implement the tool into our project. Another 'road-block' was writing asynchronous network requests, and then subsequently testing those succesfully by mocking out the requests. 
 
