@@ -3,19 +3,22 @@
   width: 35%;
   height: 200px;
   margin: 3%;
-  text-align: center;
+  text-align: left;
   box-shadow: 0px 4px 40px rgba(0, 0, 0, 0.35);
   border-radius: 3px;
   cursor: pointer;
   margin: 10% 0;
+  font-family: 'Roboto Mono', monospace;
 }
 
 .location-name-address {
-
+  padding-left: 5%;
 }
 
 .location-card-btns {
-
+  display: flex;
+  justify-content: space-around;
+  padding-bottom: 2%;
 }
 
 .location-img {
@@ -24,21 +27,33 @@
   background-position: 0% 45%;
 }
 
-
-.see-listing-btn {
+.see-listing-btn, .favorite-btn {
   cursor: pointer;
   border-radius: 10px;
-  width: 120px;
-  height: 45px;
   background-color: rgba(2, 111, 183, 0.87);
+  border-radius: 10px;
   outline: none;
   color: #ffffff;
-  margin: 0px 20px 0px 0px;
   text-transform: uppercase;
   font-size: 15px;
+  font-family: 'Roboto Mono', monospace;
 }
 
-.see-listing-btn:hover {
+.see-listing-btn:hover, .favorite-btn:hover {
   background-color: rgba(254, 184, 96, 0.87);
   color: #000000;
+}
+
+.see-listing-btn {
+  position: relative;
+  left: 25%;
+  width: 150px;
+  height: 45px;
+}
+
+.favorite-btn {
+  width: 120px;
+  height: 45px;
+  position: relative;
+  right: 6%;
 }
