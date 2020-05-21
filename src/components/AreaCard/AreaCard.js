@@ -6,7 +6,7 @@ import LoHiIcon from './card-icons/LoHi.png';
 import ParkHillIcon from './card-icons/Park-Hill.png';
 import { Link } from 'react-router-dom';
 
-const AreaCard = ({ areaInfo, fetchListings }) => {
+const AreaCard = ({ areaInfo }) => {
 
   const cardIcon = (name) => {
     switch(name) {
