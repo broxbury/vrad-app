@@ -37,3 +37,16 @@ We also implemented Unit and/or Integration tests for all of our components, so 
 ## Challenges 
 This project was challenging for us on a few different levels. This was our first project using Browser Router, and while challenging at first, we were able to successfully implement the tool into our project. Another 'road-block' was writing asynchronous network requests, and then subsequently testing those succesfully by mocking out the requests. 
 
+## Project In Action:
+
+## Logging In 
+![vrad-app-gif](https://media.giphy.com/media/KfHPkmzVf0704f2Cnx/giphy.gif)
+
+![vrad-app-gif](https://media.giphy.com/media/jO1xyAyx5sjoVaO4fC/giphy.gif)
+
+![vrad-app-gif](https://media.giphy.com/media/JQosPpAYohpKGxGWOu/giphy.gif)
+
+![vrad-app-gif](https://media.giphy.com/media/RhkQNQQAzgaZ9wkrR8/giphy.gif)
+
+![vrad-app-gif](https://media.giphy.com/media/TGiPCTRtsLKLBo2Zi2/giphy.gif)
+
