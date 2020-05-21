@@ -121,7 +121,7 @@ describe('App', () => {
 
     const rinoListing = await waitFor(() => getByText('Hip RiNo Party Spot'));
 
-    expect(rinoListing).toBeInTheDocument;
+    expect(rinoListing).toBeInTheDocument();
   });
 
 
@@ -164,9 +164,9 @@ describe('App', () => {
     const details = await waitFor(() => getByText('Cost Per Night: $420'))
     const address = await waitFor(() => getByText('rino/ 2250 Lawrence St, 80205'));
 
-    expect(features).toBeInTheDocument;
-    expect(details).toBeInTheDocument;
-    expect(features).toBeInTheDocument;
+    expect(features).toBeInTheDocument();
+    expect(details).toBeInTheDocument();
+    expect(features).toBeInTheDocument();
   });
 
   it('Should change to Favorites Page', async () => {
@@ -214,6 +214,6 @@ describe('App', () => {
     const testFavoriteListing = await waitFor(() => getByText('Hip RiNo Party Spot'));
 
     // expect(favoritePage).toBeInTheDocument;
-    expect(testFavoriteListing).toBeInTheDocument;
+    expect(testFavoriteListing).toBeInTheDocument();
   });
 })

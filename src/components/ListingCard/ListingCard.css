@@ -1,3 +1,17 @@
+
+
+.listingFeatures ul {
+  list-style-type: none;
+  padding-left: 0;
+  font-family: Roboto Slab;
+  margin: 10px;
+  font-size: 30px;
+}
+
+.listingFeatures li {
+  padding-top: 5px;
+}
+
 .listing-card {
   width: 70%;
   background-color: #ffffff;
@@ -11,21 +25,45 @@
   text-align: center;
 }
 
+.listing-name-address h2 {
+  font-family: Roboto Slab;
+  font-size: 50px;
+  padding-top: 10px;
+}
+.listing-name-address h4 {
+  font-family: Roboto Slab;
+  font-size: 25px;
+}
+
 .features-and-btn {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
 }
 
-.listingInfo {
-
+.listingInfo p {
+  font-family: Roboto Slab;
+  margin: 10px;
+  font-size: 30px;
 }
 
-.listingFeatures {
-
+.listingFeatures p {
+  font-family: Roboto Slab;
+  margin: 10px;
+  font-size: 30px;
 }
 
-.favorite-btn {
-
+.favorite-btn-listing {
+  cursor: pointer;
+    border-radius: 10px;
+    width: 190px;
+    height: 70px;
+    background-color: rgba(2, 111, 183, 0.87);
+    outline: none;
+    color: #ffffff;
+    margin: 0px 20px 0px 0px;
+    text-transform: uppercase;
+    font-size: 30px;
+    margin-top: 60px;
 }
 
 .listing-imgs {

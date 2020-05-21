@@ -4,7 +4,7 @@ import './ListingCard.css';
 const ListingCard = ({ listingInfo, addFavorite }) => {
 
   const listingFeatures = listingInfo.details.features.map((feature, i) => {
-    let featureItem = <li key={i}>{feature}</li>;
+    let featureItem = <li key={i}>{feature.toUpperCase()}</li>;
     return featureItem;
   });
 
@@ -13,10 +13,10 @@ const ListingCard = ({ listingInfo, addFavorite }) => {
       <div className='listing-card'>
         <div className='listing-name-address'>
           <h2>{listingInfo.name}</h2>
-          <h4>{listingInfo.area}/ {listingInfo.address.street}, {listingInfo.address.zip}</h4>
+          <h4>{listingInfo.address.street}, {listingInfo.address.zip}</h4>
         </div>
         <div className='features-and-btn'>
-          <div className='listinInfo'>
+          <div className='listingInfo'>
             <p>Cost Per Night: ${listingInfo.details.cost_per_night}</p>
             <p>Num Of Beds: {listingInfo.details.beds}</p>
             <p>Num Bathrooms: {listingInfo.details.baths}</p>
@@ -27,7 +27,7 @@ const ListingCard = ({ listingInfo, addFavorite }) => {
               {listingFeatures}
             </ul>
           </div>
-          <button aria-label='favorite' onClick={() => addFavorite(listingInfo.id)} className='favorite-btn'>Favorite</button>
+          <button aria-label='favorite' onClick={() => addFavorite(listingInfo.id)} className='favorite-btn-listing'>Favorite</button>
         </div>
         <div className='listing-imgs'>
           <img src={`/images/${listingInfo.id}_a.jpg`} />
