@@ -18,7 +18,7 @@ class App extends Component {
         email: '',
         accountType: ''
       },
-      isLoggedIn: false,
+      isLoggedIn: true,
       areas: [],
       favoriteLocations: []
 
@@ -70,17 +70,17 @@ class App extends Component {
     let filteredArray = currentState.filter(listing => listing.id !== listingToRemove.id)
     console.log('this.stat.favlocations', currentState)
     this.setState({ favoriteLocations: filteredArray})
-    console.log('listingToRemove', listingToRemove)
   }
 
-  addFavorite = async (listingToAdd) => {
-    if (this.state.favoriteLocations.includes(listingToAdd)) {
+  addFavorite = (listingToAdd) => {
+    if (this.state.favoriteLocations.find(listing => listing.id === listingToAdd.id)) {
+      console.log('found!', listingToAdd)
       this.removeFavorite(listingToAdd)
       console.log('listingToAdd', listingToAdd)
     } else {
       console.log('listingToAdd2', listingToAdd)
     
-     await this.setState({
+     this.setState({
         favoriteLocations: [
           ...this.state.favoriteLocations,
          listingToAdd
