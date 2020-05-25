@@ -66,12 +66,12 @@
 }
 
 .favorite-listing-btn:hover {
-  background-color: rgba(254, 184, 96, 0.87);
+  background-color:hotpink;
   color: #000000;
 }
 
 .favorite-listing-btn-active {
-  background-color: rgba(254, 184, 96, 0.87);
+  background-color: hotpink;
   border-radius: 10px;
   color: #000000;
   cursor: pointer;

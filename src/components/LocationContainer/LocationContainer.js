@@ -27,7 +27,6 @@ class LocationContainer extends React.Component {
   }
 
   componentDidMount = async () => {
-    // console.log(this.props.areas)
     const currentHood = this.props.areas.find(area => area.id === this.state.areaId)
     const listingPromises = currentHood.listings.map(listing => {
      return fetchedLocations(listing)
@@ -63,7 +62,6 @@ class LocationContainer extends React.Component {
   findListing = () => {
     return this.state.listings.find(listing => listing.id === parseInt(this.props.listingId));
   }
-
 
   render() {
     const background = this.backgroundImgFinder(this.props.areaId)
