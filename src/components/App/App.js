@@ -1,11 +1,10 @@
 import React, { Component } from 'react';
 import './App.css';
 import Login from '../LogIn/Login';
-import { Route, Redirect, Switch } from 'react-router-dom';
+import { Route, Redirect } from 'react-router-dom';
 import Header from '../Header/Header.js';
 import AreaContainer from '../AreaContainer/AreaContainer.js';
 import LocationContainer from '../LocationContainer/LocationContainer.js'
-import LocationCard from '../LocationCard/LocationCard';
 import FavoritesContainer from '../FavoritesContainer/FavoritesContainer.js'
 import { fetchedAreas, fetchedAreaInfo } from '../../apiCalls';
 
@@ -68,25 +67,19 @@ class App extends Component {
   removeFavorite = (listingToRemove) => {
     let currentState = [...this.state.favoriteLocations];
     let filteredArray = currentState.filter(listing => listing.id !== listingToRemove.id)
-    console.log('this.stat.favlocations', currentState)
     this.setState({ favoriteLocations: filteredArray})
   }
 
   addFavorite = (listingToAdd) => {
     if (this.state.favoriteLocations.find(listing => listing.id === listingToAdd.id)) {
-      console.log('found!', listingToAdd)
       this.removeFavorite(listingToAdd)
-      console.log('listingToAdd', listingToAdd)
-    } else {
-      console.log('listingToAdd2', listingToAdd)
-    
+    } else {    
      this.setState({
         favoriteLocations: [
           ...this.state.favoriteLocations,
          listingToAdd
         ]
       })
-      // console.log('fav locations', this.state.favoriteLocations)
     }
    }
 
@@ -139,6 +132,5 @@ class App extends Component {
     )
   }
 }
-{/* <LocationContainer currentListingId={parseInt(match.params.id)} /> */}
 
 export default App;

@@ -31,9 +31,9 @@ const ListingCard = ({ listingInfo, addFavorite }) => {
           <button aria-label='favorite' onClick={() => addFavorite(listingInfo.id)} className='favorite-btn-listing'>Favorite</button>
         </div>
         <div className='listing-imgs'>
-          <img src={`/images/${listingInfo.id}_a.jpg`} />
-          <img src={`/images/${listingInfo.id}_b.jpg`} />
-          <img src={`/images/${listingInfo.id}_c.jpg`} />
+          <img src={`/images/${listingInfo.id}_a.jpg`} alt={`${listingInfo.name}`} />
+          <img src={`/images/${listingInfo.id}_b.jpg`} alt={`${listingInfo.name}`} />
+          <img src={`/images/${listingInfo.id}_c.jpg`} alt={`${listingInfo.name}`} />
         </div>
       </div>
     </div>
