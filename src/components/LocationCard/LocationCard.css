@@ -56,3 +56,19 @@
   right: 6%;
   width: 120px;
 }
+
+.favorite-btn-active {
+  background-color: rgba(254, 184, 96, 0.87);
+  border-radius: 10px;
+  border-radius: 10px;
+  color: #000000;
+  cursor: pointer;
+  font-family: 'Roboto Mono', monospace;
+  font-size: 15px;
+  outline: none;
+  text-transform: uppercase;
+  height: 45px;
+  position: relative;
+  right: 6%;
+  width: 120px;
+}

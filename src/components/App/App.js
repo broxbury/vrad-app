@@ -19,8 +19,7 @@ class App extends Component {
       },
       isLoggedIn: true,
       areas: [],
-      favoriteLocations: []
-
+       favoriteLocations: []
     };
   }
 
@@ -106,6 +105,7 @@ class App extends Component {
                              renderSingleCard={false}
                              addFavorite={this.addFavorite}
                              favCount={this.state.favoriteLocations.length}
+                             favoriteLocations={this.state.favoriteLocations}
                              />}
 
                              />
@@ -122,6 +122,7 @@ class App extends Component {
                              renderSingleCard={true}
                              addFavorite={this.addFavorite}
                              favCount={this.state.favoriteLocations.length}
+                             favoriteLocations={this.state.favoriteLocations}
                              />)}
                              }
                              />
