@@ -65,24 +65,28 @@ class App extends Component {
     })
   };
 
-  removeFavorite = async (listingToRemove) => {
+  removeFavorite = (listingToRemove) => {
     let currentState = [...this.state.favoriteLocations];
     let filteredArray = currentState.filter(listing => listing.id !== listingToRemove.id)
-
+    console.log('this.stat.favlocations', currentState)
     this.setState({ favoriteLocations: filteredArray})
-
+    console.log('listingToRemove', listingToRemove)
   }
 
   addFavorite = async (listingToAdd) => {
     if (this.state.favoriteLocations.includes(listingToAdd)) {
-      await this.removeFavorite(listingToAdd)
+      this.removeFavorite(listingToAdd)
+      console.log('listingToAdd', listingToAdd)
     } else {
+      console.log('listingToAdd2', listingToAdd)
+    
      await this.setState({
         favoriteLocations: [
           ...this.state.favoriteLocations,
          listingToAdd
         ]
       })
+      // console.log('fav locations', this.state.favoriteLocations)
     }
    }
 

@@ -27,7 +27,7 @@ class LocationContainer extends React.Component {
   }
 
   componentDidMount = async () => {
-    console.log(this.props.areas)
+    // console.log(this.props.areas)
     const currentHood = this.props.areas.find(area => area.id === this.state.areaId)
     const listingPromises = currentHood.listings.map(listing => {
      return fetchedLocations(listing)

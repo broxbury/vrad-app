@@ -8,23 +8,32 @@ import './FavoritesContainer.css'
 class FavoritesContainer extends React.Component {
   constructor(props) {
     super(props)
-    this.state={
+    this.state= {
       favoriteListings: this.props.favoriteListings
     }
   }
 
  findListing = (listingId) => {
-    return this.state.favoriteListings.find(listing => listing.id === parseInt(listingId));
+    return this.props.favoriteListings.find(listing => listing.id === parseInt(listingId));
   }
 
   addFavorite = (listingToRemoveId) => {
     const listingToRemove = this.findListing(listingToRemoveId)
     this.props.addFavorite(listingToRemove)
+    this.setState({
+      favoriteListings: this.props.favoriteListings.filter(listing => listing.id !== listingToRemoveId)
+    })
+  }
+
+  componentDidUpdate(prevProps) {
+    console.log('current', this.props)
+    console.log('prev', prevProps)
+
   }
 
   render() {
     const listingToDisplay = this.findListing()
-    const listings = this.state.favoriteListings.map(listing => {
+    const listings = this.props.favoriteListings.map(listing => {
       return <LocationCard findListing={this.findListing} key={listing.name} listingInfo={listing} addFavorite={this.addFavorite} />
     })
 

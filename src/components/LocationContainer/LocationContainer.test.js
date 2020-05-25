@@ -74,7 +74,7 @@ describe('LocationContainer', () => {
       </MemoryRouter>
     );
   
-    const listingPrice = await waitFor(() => getByText('hot tub'));
+    const listingPrice = await waitFor(() => getByText('HOT TUB'));
     expect(listingPrice).toBeInTheDocument();
   });
 });

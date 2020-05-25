@@ -115,7 +115,7 @@ describe('App', () => {
     fireEvent.click(getByLabelText('submit')); 
 
 
-    const allListingBtn = await waitFor(() => getByLabelText('Listings'));
+    const allListingBtn = await waitFor(() => getByLabelText('listings'));
 
     fireEvent.click(allListingBtn);
 
@@ -160,13 +160,13 @@ describe('App', () => {
 
     fireEvent.click(seeListingBtn);
 
-    const features = await waitFor(() => getByText('hot tub'))
+    const features = await waitFor(() => getByText('HOT TUB'))
     const details = await waitFor(() => getByText('Cost Per Night: $420'))
-    const address = await waitFor(() => getByText('rino/ 2250 Lawrence St, 80205'));
+    const address = await waitFor(() => getByText('2250 Lawrence St, 80205'));
 
     expect(features).toBeInTheDocument();
     expect(details).toBeInTheDocument();
-    expect(features).toBeInTheDocument();
+    expect(address).toBeInTheDocument();
   });
 
   it('Should change to Favorites Page', async () => {

@@ -40,7 +40,7 @@ describe('ListingCard', () => {
 
     const header = getByText('Hip RiNo Party Spot');
     const listinInfo = getByText('Num Of Beds: 3');
-    const listingFeatures = getByText('espresso machine');
+    const listingFeatures = getByText('ESPRESSO MACHINE');
     const favoriteBtn = getByLabelText('favorite');
 
     expect(header).toBeInTheDocument;

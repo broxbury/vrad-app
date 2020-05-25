@@ -8,6 +8,7 @@ const ListingCard = ({ listingInfo, addFavorite }) => {
     return featureItem;
   });
 
+
   return(
     <div className='listing-card-container'>
       <div className='listing-card'>
