@@ -26,7 +26,7 @@ const AreaCard = ({ areaInfo }) => {
   return(
     <div className='area-card'>
       <div className='card-img-info'>
-        <img src={cardIcon(areaInfo.name)} />
+        <img src={cardIcon(areaInfo.name)} alt={`${cardIcon(areaInfo.name)}`}/>
         <h3>{areaInfo.name}</h3>
         <p>({areaInfo.nickname})</p>
         <p>{areaInfo.about}</p>

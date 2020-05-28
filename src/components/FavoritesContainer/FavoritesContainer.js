@@ -32,9 +32,8 @@ class FavoritesContainer extends React.Component {
   }
 
   render() {
-    const listingToDisplay = this.findListing()
     const listings = this.props.favoriteListings.map(listing => {
-      return <LocationCard findListing={this.findListing} key={listing.name} listingInfo={listing} addFavorite={this.addFavorite} />
+      return <LocationCard findListing={this.findListing} key={listing.name} listingInfo={listing} addFavorite={this.addFavorite} isFavorite={true}/>
     })
 
     return (

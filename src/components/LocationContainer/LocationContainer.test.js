@@ -54,7 +54,7 @@ describe('LocationContainer', () => {
 
     const { getByText } = render(
       <MemoryRouter>
-        <LocationContainer areas={mockAreaInfoResponse} areaId={590} renderSingleCard={false} />
+        <LocationContainer areas={mockAreaInfoResponse} areaId={590} renderSingleCard={false} favoriteLocations={[mockLocationResponse]} />
       </MemoryRouter>
     );
 
@@ -70,7 +70,7 @@ describe('LocationContainer', () => {
 
     const { getByText } = render(
       <MemoryRouter>
-        <LocationContainer areaId={590} areas={mockAreaInfoResponse} listingId={3} renderSingleCard={true} />
+        <LocationContainer areaId={590} areas={mockAreaInfoResponse} listingId={3} renderSingleCard={true} favoriteLocations={[mockLocationResponse]} /> 
       </MemoryRouter>
     );
   
